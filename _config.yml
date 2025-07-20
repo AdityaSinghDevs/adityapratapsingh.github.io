@@ -1,9 +1,9 @@
 # Site settings
-title: Richard Feynman
-email: richard@university.edu
-description: Academic webpage of Dr. Richard Feynman
+title: Aditya Pratap Singh
+email: adityasingh.devs@gmail.com
+description: Academic webpage of Aditya Singh
 baseurl: ""
-url: ""
+url: "https://adityasinghdevs.github.io"
 
 # Google analytics ID: Uncomment and your own, if you like
 # google_analytics: XX
@@ -12,29 +12,30 @@ url: ""
 
 # Footer info
 affiliation: >
-  Richard Feynman<br/>
-  Professor of Physics<br/>
-  California Institute of Technology
+  Aditya Pratap Singh<br/>
+  B.Tech Engineering major in AI and Data Science<br/>
+  GGSIPU | VIPS
 
 location: >
-  California Institute of Technology<br/>
-  1200 E California Blvd<br/>
-  Pasadena, CA 91125
+  GGSIPU | VIPS<br/>
+  New Delhi
 
 contact: >
-  <a href="mailto:richard@university.edu" target="_blank"><i class="fa fa-envelope fa-1x"></i> Contact Richard via email</a> <br/>
-  <a href="https://github.com/sbryngelson/academic-website-template"><i class="fa fa-github fa-1x"></i> Use this site as a template!</a>
+  <a href="mailto:adityasingh.devs@gmail.com" target="_blank"><i class="fa fa-envelope fa-1x"></i> Email</a> <br/>
+  <a href="https://github.com/AdityaSinghDevs" target="_blank"><i class="fa fa-github fa-1x"></i> GitHub</a> <br/>
+  <a href="https://www.linkedin.com/in/aditya-pratap-singh25/" target="_blank"><i class="fa fa-linkedin fa-1x"></i> LinkedIn</a>
+
 
 # Pages shown in navbar
 nav_pages:
   - name: about
+  - name: projects     # Add this one!
+  - name: blogs
   - name: publications
   - name: talks
   - name: research
-  - name: software
-  - name: team
-  - name: teaching
-  - name: blogs
+  - name: resume       # Add if you want a dedicated resume page
+
 
 include:
   - .htaccess
@@ -62,8 +63,8 @@ kramdown:
 plugins: ["jekyll/scholar"]
 
 scholar:
-  last_name: Doe
-  first_name: [John]
+  last_name: Singh
+  first_name: [Aditya]
 
   style: citesty
   locale: en
@@ -93,3 +94,6 @@ exclude:
   - switch_theme.sh
   - tags
   - Rakefile
+
+# Social image
+image: /assets/img/social_preview.jpg
