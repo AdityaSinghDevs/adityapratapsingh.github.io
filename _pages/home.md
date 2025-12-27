@@ -81,7 +81,7 @@ My long-term goal is to work as a **research engineer**, bridging the gap betwee
 <div class="jumbotron project-card" style="margin-top: 30px; margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: background-color 0.4s ease;">
 <div class="row">
 <div class="col-md-1 col-sm-12" style="margin-bottom: 15px;">
-<img src="{{ '/images/tesseract.gif' | relative_url }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 6px;" alt="Tesseract Project">
+<img src="{{ '/images/tesseract.gif' | relative_url }}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px;" alt="Tesseract Project">
 </div>
 <div class="col-md-11 col-sm-12">
 <h5 style="font-weight: bold; margin-bottom: 8px; color: #222;">Tesseract v1 — Text-to-3D Mesh Generation Engine</h5>
@@ -97,7 +97,7 @@ My long-term goal is to work as a **research engineer**, bridging the gap betwee
 <div class="jumbotron project-card" style="margin-top: 30px; margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: background-color 0.4s ease;">
 <div class="row">
 <div class="col-md-1 col-sm-12" style="margin-bottom: 15px;">
-<div style="width: 100%; height: 200px; background-color: #e9ecef; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #6c757d; font-size: 0.85rem;">
+<div style="width: 100%; height: 150px; background-color: #e9ecef; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #6c757d; font-size: 0.85rem;">
 [Project Image]
 </div>
 </div>
@@ -115,7 +115,7 @@ My long-term goal is to work as a **research engineer**, bridging the gap betwee
 <div class="jumbotron project-card" style="margin-top: 30px; margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: background-color 0.4s ease;">
 <div class="row">
 <div class="col-md-1 col-sm-12" style="margin-bottom: 15px;">
-<div style="width: 100%; height: 200px; background-color: #e9ecef; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #6c757d; font-size: 0.85rem;">
+<div style="width: 100%; height: 150px; background-color: #e9ecef; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #6c757d; font-size: 0.85rem;">
 [Project Image]
 </div>
 </div>
@@ -128,4 +128,9 @@ My long-term goal is to work as a **research engineer**, bridging the gap betwee
 </ul>
 </div>
 </div>
+</div>
+
+<div style="text-align: center; margin-top: 40px; margin-bottom: 30px;">
+  <a href="{{ site.url }}{{ site.baseurl }}/projects/" style="text-decoration: none; color: #000; font-family: 'Geist', sans-serif; font-weight: 500; font-size: 1.1rem;">See all</a>
+  <div style="width: 60px; height: 1px; background-color: #000; margin: 8px auto;"></div>
 </div>
