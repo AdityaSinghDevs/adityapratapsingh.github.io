@@ -113,22 +113,3 @@ img {
     }
   }
 }
-
-@media (min-width: 768px) {
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  #newsid {
-    flex: 0 0 41.666667%;
-    max-width: 41.666667%;
-    align-self: flex-start;
-  }
-  
-  #homeid {
-    flex: 1 1 58.333333%;
-    max-width: 100%;
-    min-width: 58.333333%;
-  }
-}
