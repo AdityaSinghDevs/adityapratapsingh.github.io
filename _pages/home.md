@@ -78,52 +78,56 @@ My long-term goal is to work as a **research engineer**, bridging the gap betwee
 
 ## Projects
 
-<div style="margin-top: 30px;">
-  <div class="row" style="margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa;">
-    <div class="col-md-3 col-sm-12" style="margin-bottom: 15px;">
-      <div style="width: 100%; height: 150px; background-color: #e9ecef; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #6c757d; font-size: 0.85rem;">
-        [Project Image]
-      </div>
-    </div>
-    <div class="col-md-9 col-sm-12">
-      <h5 style="font-weight: bold; margin-bottom: 8px; color: #222;">Project Name 1</h5>
-      <p style="color: #6c757d; font-size: 0.9rem; margin-bottom: 12px;">January 2024</p>
-      <ul style="padding-left: 20px; margin-bottom: 0; font-size: 0.95rem; line-height: 1.6;">
-        <li>First key point about the project and its main feature or achievement</li>
-        <li>Second key point describing another important aspect or outcome</li>
-      </ul>
-    </div>
-  </div>
-  
-  <div class="row" style="margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa;">
-    <div class="col-md-3 col-sm-12" style="margin-bottom: 15px;">
-      <div style="width: 100%; height: 150px; background-color: #e9ecef; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #6c757d; font-size: 0.85rem;">
-        [Project Image]
-      </div>
-    </div>
-    <div class="col-md-9 col-sm-12">
-      <h5 style="font-weight: bold; margin-bottom: 8px; color: #222;">Project Name 2</h5>
-      <p style="color: #6c757d; font-size: 0.9rem; margin-bottom: 12px;">March 2024</p>
-      <ul style="padding-left: 20px; margin-bottom: 0; font-size: 0.95rem; line-height: 1.6;">
-        <li>First key point about the project and its main feature or achievement</li>
-        <li>Second key point describing another important aspect or outcome</li>
-      </ul>
-    </div>
-  </div>
-  
-  <div class="row" style="margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa;">
-    <div class="col-md-3 col-sm-12" style="margin-bottom: 15px;">
-      <div style="width: 100%; height: 150px; background-color: #e9ecef; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #6c757d; font-size: 0.85rem;">
-        [Project Image]
-      </div>
-    </div>
-    <div class="col-md-9 col-sm-12">
-      <h5 style="font-weight: bold; margin-bottom: 8px; color: #222;">Project Name 3</h5>
-      <p style="color: #6c757d; font-size: 0.9rem; margin-bottom: 12px;">June 2024</p>
-      <ul style="padding-left: 20px; margin-bottom: 0; font-size: 0.95rem; line-height: 1.6;">
-        <li>First key point about the project and its main feature or achievement</li>
-        <li>Second key point describing another important aspect or outcome</li>
-      </ul>
-    </div>
-  </div>
+<div class="jumbotron" style="margin-top: 30px; margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+<div class="row">
+<div class="col-md-3 col-sm-12" style="margin-bottom: 15px;">
+<div style="width: 100%; height: 150px; background-color: #e9ecef; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #6c757d; font-size: 0.85rem;">
+[Project Image]
+</div>
+</div>
+<div class="col-md-9 col-sm-12">
+<h5 style="font-weight: bold; margin-bottom: 8px; color: #222;">Project Name 1</h5>
+<p style="color: #6c757d; font-size: 0.9rem; margin-bottom: 12px;">January 2024</p>
+<ul style="padding-left: 20px; margin-bottom: 0; font-size: 0.95rem; line-height: 1.6;">
+<li>First key point about the project and its main feature or achievement</li>
+<li>Second key point describing another important aspect or outcome</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="jumbotron" style="margin-top: 30px; margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+<div class="row">
+<div class="col-md-3 col-sm-12" style="margin-bottom: 15px;">
+<div style="width: 100%; height: 150px; background-color: #e9ecef; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #6c757d; font-size: 0.85rem;">
+[Project Image]
+</div>
+</div>
+<div class="col-md-9 col-sm-12">
+<h5 style="font-weight: bold; margin-bottom: 8px; color: #222;">Project Name 2</h5>
+<p style="color: #6c757d; font-size: 0.9rem; margin-bottom: 12px;">March 2024</p>
+<ul style="padding-left: 20px; margin-bottom: 0; font-size: 0.95rem; line-height: 1.6;">
+<li>First key point about the project and its main feature or achievement</li>
+<li>Second key point describing another important aspect or outcome</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="jumbotron" style="margin-top: 30px; margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+<div class="row">
+<div class="col-md-3 col-sm-12" style="margin-bottom: 15px;">
+<div style="width: 100%; height: 150px; background-color: #e9ecef; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #6c757d; font-size: 0.85rem;">
+[Project Image]
+</div>
+</div>
+<div class="col-md-9 col-sm-12">
+<h5 style="font-weight: bold; margin-bottom: 8px; color: #222;">Project Name 3</h5>
+<p style="color: #6c757d; font-size: 0.9rem; margin-bottom: 12px;">June 2024</p>
+<ul style="padding-left: 20px; margin-bottom: 0; font-size: 0.95rem; line-height: 1.6;">
+<li>First key point about the project and its main feature or achievement</li>
+<li>Second key point describing another important aspect or outcome</li>
+</ul>
+</div>
+</div>
 </div>
