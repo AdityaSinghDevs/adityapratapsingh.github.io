@@ -21,7 +21,7 @@ Research in theoretical physics helps us to make predictions about how the unive
 It also helps us to understand the fundamental principles that govern the behavior of matter and energy, and to explore the limits of our current knowledge.
 Theoretical physics helps us to make progress in a wide range of fields, including cosmology, particle physics, and quantum mechanics, and it has led to many important discoveries and technological innovations. -->
 
-## Hi, I’m Aditya Pratap Singh.
+## Hi, I’m Aditya.
 
 I am an AI engineer and research-oriented undergraduate focused on **computer vision, diffusion models, and large language model systems**, with an emphasis on **reproducible, production-grade AI pipelines**.
 
@@ -29,8 +29,6 @@ My work spans applied computer vision, LLM-based systems, and open-source contri
 
 This website serves as a record of my **projects, research directions, technical writing, and academic progress**.
 
-
-<p>This site documents that journey, where it began, where it’s going, and everything in between.</p>
 
 <!-- <p>
 Currently I am a Junior undergraduate in Computer Science Engineering, Specializing in AI & Data Science at GGSIPU (VIPS-TC), A student nerding out on everything architectures, training workflows, and papers people have written in this field, especially the kind that make you pause and wonder <b>, "How did they even build this?"</b>.<br>

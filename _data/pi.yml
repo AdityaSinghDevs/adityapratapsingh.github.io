@@ -1,5 +1,14 @@
 - name: Aditya Pratap Singh
   photo: profile_photo.png
+  # Photo positioning controls (adjust these numbers to crop/position the image):
+  # position_x: 50 (0 = left, 50 = center, 100 = right) - controls horizontal position
+  # position_y: 50 (0 = top, 50 = center, 100 = bottom) - controls vertical position
+  # fit: cover (options: cover, contain, fill, none, scale-down)
+  # width: 80 (percentage of container width)
+  position_x: 50
+  position_y: 50
+  fit: cover
+  width: 80
   info: Junior undergraduate (B.Tech) majoring in Artificial Intelligence & Data Science.<br>
        <i>Driven by curiosity, innovation, and a passion for building intelligent systems.</i>
   email: richard@university.edu
