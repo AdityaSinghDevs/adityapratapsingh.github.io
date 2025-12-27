@@ -9,7 +9,7 @@ permalink: /
 <!-- <h2 style="font-family: 'Inter', sans-serif; font-weight: 800; font-size: 2.6em;">Sup – You found me.</h2>
 <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 2.5em; letter-spacing: -0.5px;">Sup – You found me.</h2>
 <h2 style="font-family: 'IBM Plex Sans', sans-serif; font-weight: 700; font-size: 2.4em;">Sup – You found me.</h2> -->
-<h2 style="font-family: 'Geist', sans-serif; font-weight: 600; font-size: 2.5em; color: #222;">Sup! – You found me.</h2>
+<!-- <h2 style="font-family: 'Geist', sans-serif; font-weight: 600; font-size: 2.5em; color: #222;">Sup! – You found me.</h2> -->
 
 
 
@@ -21,11 +21,14 @@ Research in theoretical physics helps us to make predictions about how the unive
 It also helps us to understand the fundamental principles that govern the behavior of matter and energy, and to explore the limits of our current knowledge.
 Theoretical physics helps us to make progress in a wide range of fields, including cosmology, particle physics, and quantum mechanics, and it has led to many important discoveries and technological innovations. -->
 
-<p>Hey I am Aditya,<br>
-What started as a buzzword driven leap into the AI space, in hopes of future-proofing my career has turnt into a pursuit of understanding and building real world AI systems.
-The more I explored the more I realised Artificial Intelligence is just not another bandwagon, it's a paradigm shift, that will shift the world to new levels, The AI wave has arrived, The Tsunami is close behind, And I want to be prepared to ride it when it comes.<br>
-More than that, I want to leave a mark in this space, Create something that leaves a legacy, Maybe a system, Maybe a machine, I don't know yet. But, I’m certain that one day, I want to look back and know I contributed something meaningful to this space.
-</p>
+## Hi, I’m Aditya Pratap Singh.
+
+I am an AI engineer and research-oriented undergraduate focused on **computer vision, diffusion models, and large language model systems**, with an emphasis on **reproducible, production-grade AI pipelines**.
+
+My work spans applied computer vision, LLM-based systems, and open-source contributions, including work on **Intel OpenVINO**. I am particularly interested in the intersection of **model architecture, training workflows, and system-level design**, and how these choices affect real-world deployment and research validity.
+
+This website serves as a record of my **projects, research directions, technical writing, and academic progress**.
+
 
 <p>This site documents that journey, where it began, where it’s going, and everything in between.</p>
 
