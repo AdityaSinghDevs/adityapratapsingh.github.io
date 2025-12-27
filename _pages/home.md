@@ -60,7 +60,7 @@ Feynman R., The theory of positrons. <i>Phys. Rev.</i> (1949)
 
 ## About Me
 
-I am an undergraduate majoring in Artificial Intelligence and Data Science, with a strong interest in **applied machine learning systems and research-oriented LLM engineering**.
+I am a junior undergraduate student majoring in Artificial Intelligence and Data Science, with a strong interest in **applied machine learning systems and research-oriented LLM engineering**.
 
 My current focus lies in understanding how large language models behave under practical constraints — particularly how **parameter-efficient fine-tuning and compression techniques** (such as LoRA, quantization, and pruning) influence **internal representations, attention dynamics, and downstream behavior** of transformer-based models. I am exploring these questions through controlled experiments and analysis, with the goal of developing a deeper systems-level understanding rather than producing surface-level benchmarks.
 
@@ -69,7 +69,21 @@ Alongside this, I am developing **MÍMIR**, a research-grade LLM system aimed at
 In parallel with research-oriented work, I build **production-grade AI systems**, including scalable inference services, modular ML pipelines, and deployment-ready backends. I have contributed to open-source optimization efforts within **Intel’s OpenVINO ecosystem** and have led applied projects spanning computer vision, generative models, and LLM-based systems.
 
 My long-term goal is to work as a **research engineer**, bridging the gap between modern ML research and reliable, high-impact real-world systems.
-<br></p>
+<br>
+## About Me
+
+I am an undergraduate majoring in Artificial Intelligence and Data Science, with a strong interest in **research-oriented machine learning systems and applied LLM engineering**.
+
+I am currently preparing a research paper that investigates how **parameter-efficient fine-tuning and model compression techniques**—including LoRA, quantization, and pruning—affect the **internal representations, attention dynamics, and downstream behavior** of transformer-based language models. My focus is on formulating clear research questions and studying these effects through controlled experiments, rather than making premature performance claims.
+
+In parallel, I am designing and prototyping **MÍMIR**, an early-stage, research-oriented LLM system intended for structured reasoning in incident diagnosis and DevOps/SRE workflows. The project is conceived as a rigorous experimental artifact, combining retrieval-augmented generation with parameter-efficient adaptation, and emphasizing **reproducibility, ablation-driven evaluation, and system-level trade-offs**. At its current stage, MÍMIR serves as a platform for exploring these design and evaluation questions.
+
+Alongside research-focused work, I build **production-grade AI systems**, including scalable inference services, modular ML pipelines, and deployment-ready backends. I have contributed to open-source optimization efforts within **Intel’s OpenVINO ecosystem** and have led applied projects spanning computer vision, generative models, and LLM-based systems. These experiences strongly inform how I approach research problems in practice.
+
+Outside of individual work, I serve as President of **Advait**, a 300+ member AI community, where I lead technical teams and coordinate research- and project-focused initiatives.
+
+My long-term goal is to work as a **research engineer**, bridging the gap between modern machine learning research and reliable, high-impact real-world systems.
+
 <h5 style="font-family: 'Geist', sans-serif; font-weight: 700; font-size: 1.5em; color: #222;">
   Machines Converge.<br>But Humans?<br>They transcend.
 </h5>
