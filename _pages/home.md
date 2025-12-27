@@ -23,7 +23,7 @@ Theoretical physics helps us to make progress in a wide range of fields, includi
 
 ## Hi, I’m Aditya.
 
-I am an AI engineer and research-oriented undergraduate focused on **computer vision, diffusion models, and large language model systems**, with an emphasis on **reproducible, production-grade AI pipelines**.
+I am an AI engineer and research-oriented undergraduate focused on **computer vision, diffusion models, and large language model systems**, with an emphasis on **reproducible experimentation, production-grade AI pipelines**.
 
 My work spans applied computer vision, LLM-based systems, and open-source contributions, including work on **Intel OpenVINO**. I am particularly interested in the intersection of **model architecture, training workflows, and system-level design**, and how these choices affect real-world deployment and research validity.
 
@@ -60,7 +60,7 @@ Feynman R., The theory of positrons. <i>Phys. Rev.</i> (1949)
 
 ## About Me
 
-I am a junior undergraduate engineerinng student majoring in Artificial Intelligence and Data Science, with a strong interest in **research-oriented machine learning systems and applied LLM engineering**.
+I am an undergraduate engineerinng student majoring in Artificial Intelligence and Data Science, with a strong interest in **research-oriented machine learning systems and applied LLM engineering**.
 
 My interests lie in understanding how **modern language models behave under practical constraints**, particularly in settings involving **parameter-efficient adaptation, model compression, and retrieval-augmented reasoning**. I am especially drawn to research that emphasizes **clear problem formulation, controlled experimentation, and reproducibility**, rather than isolated benchmark gains.
 

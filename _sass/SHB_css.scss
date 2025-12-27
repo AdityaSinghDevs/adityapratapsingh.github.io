@@ -91,8 +91,9 @@ img {
 }
 
 .profile-photo {
-  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10), 0 1.5px 6px 0 rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,0.18), 0 2px 8px 0 rgba(0,0,0,0.15);
   border-radius: 50%; /* Circular shape */
   aspect-ratio: 1 / 1; /* Keep it square for perfect circle */
   height: auto;
+  margin-bottom: 15px !important;
 }
