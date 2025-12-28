@@ -76,7 +76,7 @@ My long-term goal is to work as a **research engineer**, bridging the gap betwee
 </h5>
 <p style="font-size: 0.9em; font-style: italic; color: #444; margin-top: -10px; margin-left : 160px;"> – Aditya</p><br>
 
-<div style="width: 100%; height: 1px; background-color: #e0e0e0; margin: 40px 0;"></div>
+<div style="width: 100%; height: 1px; background-color: #e0e0e0; margin: 20px 0;"></div>
 
 <p style="font-size: 0.85rem; font-style: italic; color: #6c757d; margin-bottom: 20px;">Below are selected systems and research-oriented projects that reflect my current technical focus.</p>
 
@@ -142,7 +142,7 @@ My long-term goal is to work as a **research engineer**, bridging the gap betwee
 <div class="jumbotron project-card" style="margin-top: 30px; margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: background-color 0.4s ease;">
 <div class="row">
 <div class="col-md-12">
-<h5 style="font-weight: bold; margin-bottom: 8px; color: #222;"><span style="color: #007bff; font-size: 1.2rem; margin-right: 8px;">●</span>LLM Compression & Interpretability</h5>
+<h5 style="font-weight: bold; margin-bottom: 8px; color: #222;"><span style="color: #007bff; font-size: 1.2rem; margin-right: 8px;">●</span>LLM Compression & Interpretability(paper in preparation)</h5>
 <p style="color: #6c757d; font-size: 0.9rem; margin-bottom: 12px;">Manuscript in preparation</p>
 <p style="font-size: 0.85rem; line-height: 1.6; color: #444;">Studying how parameter-efficient fine-tuning and compression techniques (LoRA, quantization, pruning) alter internal representations and attention dynamics in transformer models.</p>
 </div>
@@ -152,9 +152,39 @@ My long-term goal is to work as a **research engineer**, bridging the gap betwee
 <div class="jumbotron project-card" style="margin-top: 30px; margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: background-color 0.4s ease;">
 <div class="row">
 <div class="col-md-12">
-<h5 style="font-weight: bold; margin-bottom: 8px; color: #222;"><span style="color: #6f42c1; font-size: 1.2rem; margin-right: 8px;">●</span>MÍMIR — Cognitive Diagnostic LLM System</h5>
+<h5 style="font-weight: bold; margin-bottom: 8px; color: #222;"><span style="color: #6f42c1; font-size: 1.2rem; margin-right: 8px;">●</span>MÍMIR — Cognitive DevOPS Diagnostic LLM System(Early Stage)</h5>
 <p style="color: #6c757d; font-size: 0.9rem; margin-bottom: 12px;">Active development</p>
 <p style="font-size: 0.85rem; line-height: 1.6; color: #444;">A research-oriented, production-grade LLM system for DevOps and SRE incident reasoning, emphasizing retrieval grounding, structured reasoning, and reproducible evaluation.</p>
+</div>
+</div>
+</div>
+
+<div style="width: 100%; height: 1px; background-color: #e0e0e0; margin: 40px 0;"></div>
+
+## Leadership & Community
+
+<div class="jumbotron" style="margin-top: 30px; margin-bottom: 30px; padding: 30px; border: 1px solid #e8d5f2; border-radius: 8px; background-color: #f8f4fb; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+<div class="row">
+<div class="col-md-4">
+<h5 style="font-weight: bold; margin-bottom: 8px; color: #222; font-size: 1.1rem;">President,</h5>
+<h4 style="font-weight: 700; margin-bottom: 8px; color: #222; font-size: 1.4rem;">Advait</h4>
+<p style="color: #6c757d; font-size: 0.9rem; margin-bottom: 8px;">September,2025 - Present</p>
+<p style="color: #6c757d; font-size: 0.9rem; margin-bottom: 0;">Member Count : 300 +</p>
+</div>
+<div class="col-md-8">
+<p style="font-size: 0.9rem; line-height: 1.7; color: #444; margin-bottom: 15px;">I lead Advait, a 300+ member student-led AI community focused on research-oriented machine learning, systems engineering, and applied AI development.</p>
+
+<p style="font-size: 0.9rem; line-height: 1.7; color: #444; margin-bottom: 15px;"><strong>My role spans both technical leadership and organizational execution, including:</strong></p>
+
+<ul style="padding-left: 20px; margin-bottom: 15px; font-size: 0.85rem; line-height: 1.7; color: #444;">
+<li>Designing and driving research, engineering, and project-based initiatives across LLMs, computer vision, and ML systems.</li>
+<li>Organizing technical talks, workshops, and internal study groups, ranging from neural networks fundamentals to production-grade ML practices.</li>
+<li>Mentoring teams on end-to-end system building, emphasizing reproducibility, modular design, and real-world constraints.</li>
+<li>Coordinating cross-functional operations: event management, speaker outreach, sponsorship communication, public relations, and community growth.</li>
+<li>Overseeing technical direction, team structure, and execution quality, while managing social media presence and external communications.</li>
+</ul>
+
+<p style="font-size: 0.9rem; line-height: 1.7; color: #444; margin-bottom: 0;">Advait serves as a platform for translating academic curiosity into disciplined engineering practice, and for cultivating a culture centered on rigor, collaboration, and long-term skill development rather than short-term hype.</p>
 </div>
 </div>
 </div>
