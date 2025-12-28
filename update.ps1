@@ -1,4 +1,4 @@
-# Git update script with auto-incrementing commit number
+# Git update script with auto-incrementing commit number and 60s countdown
 # Usage: .\update.ps1 [optional commit message]
 
 $counterFile = ".git-update-counter"
@@ -26,6 +26,17 @@ Write-Host "Git Update Script" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "Update #: $counter" -ForegroundColor Yellow
 Write-Host "Commit message: $commitMessage" -ForegroundColor Yellow
+Write-Host ""
+
+# 60-second countdown with progress bar
+Write-Host "Starting 60-second countdown..." -ForegroundColor Magenta
+for ($i = 60; $i -gt 0; $i--) {
+    $percentComplete = ((60 - $i + 1) / 60) * 100
+    $progressBar = "[" + ("█" * [math]::Floor($percentComplete / 5)) + ("░" * (20 - [math]::Floor($percentComplete / 5))) + "]"
+    Write-Host -NoNewline "`rProgress: $progressBar $percentComplete% ($i seconds remaining)"
+    Start-Sleep -Seconds 1
+}
+Write-Host "`rProgress: [████████████████████] 100% (0 seconds remaining) - Complete!" -ForegroundColor Green
 Write-Host ""
 
 # Stage all changes
