@@ -100,9 +100,16 @@ permalink: /projects/
 }
 /* Increase overall card width */
 .projects-page .jumbotron {
-  max-width: 95% !important;
+  max-width: 98% !important;
   margin-left: auto !important;
   margin-right: auto !important;
+}
+/* Expand the overall page container width */
+.projects-page .container-fluid {
+  max-width: 1500px !important;
+}
+.projects-page .container {
+  max-width: 1400px !important;
 }
 /* Carousel styles */
 .image-carousel {
@@ -161,13 +168,6 @@ permalink: /projects/
 }
 .carousel-arrow:hover {
   background: rgba(0,0,0,0.7);
-}
-/* Expand the overall page container width */
-.projects-page .container-fluid {
-  max-width: 1400px !important;
-}
-.projects-page .container {
-  max-width: 1300px !important;
 }
 </style>
 
@@ -260,12 +260,12 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- Project 1: Tesseract -->
 <div class="jumbotron project-card completed" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
 <div class="row">
-<div class="col-md-3">
+<div class="col-md-4">
 <img src="{{ '/images/tesseract.gif' | relative_url }}" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;" alt="Text-to-3D mesh generation using diffusion models - Tesseract v1">
 <p style="color: #6c757d; font-size: 0.8rem; margin-bottom: 10px; text-align: center;">August 2025</p>
 <p style="font-size: 0.85rem; font-style: italic; color: #555; text-align: center; margin-bottom: 0;">Text-to-3D mesh generation using diffusion models</p>
 </div>
-<div class="col-md-9">
+<div class="col-md-8">
 <div class="card-content">
 <h3 style="font-weight: 700; font-size: 1.4rem; color: #222; margin-bottom: 12px;">Tesseract v1 - Text-to-3D Mesh Generation System</h3>
 
@@ -331,12 +331,12 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- Project 2: Reddit-Persona -->
 <div class="jumbotron project-card completed" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
 <div class="row">
-<div class="col-md-3">
+<div class="col-md-4">
 <img src="{{ '/images/reddit.png' | relative_url }}" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;" alt="LLM-based Reddit user persona generation system - Reddit-Persona">
 <p style="color: #6c757d; font-size: 0.8rem; margin-bottom: 10px; text-align: center;">July 2025</p>
 <p style="font-size: 0.85rem; font-style: italic; color: #555; text-align: center; margin-bottom: 0;">LLM-based user persona generation from Reddit activity</p>
 </div>
-<div class="col-md-9">
+<div class="col-md-8">
 <div class="card-content">
 <h3 style="font-weight: 700; font-size: 1.4rem; color: #222; margin-bottom: 12px;">Reddit-Persona - LLM-based User Persona Generation</h3>
 <div style="margin-bottom: 15px;">
@@ -364,12 +364,12 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- Project 3: MÍMIR -->
 <div class="jumbotron project-card ongoing" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
 <div class="row">
-<div class="col-md-3">
+<div class="col-md-4">
 <img src="{{ '/images/mimir.png' | relative_url }}" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;" alt="Research-oriented LLM system for DevOps incident reasoning - MÍMIR">
 <p style="color: #6c757d; font-size: 0.8rem; margin-bottom: 10px; text-align: center;">2025 - Present</p>
 <p style="font-size: 0.85rem; font-style: italic; color: #555; text-align: center; margin-bottom: 0;">Research-oriented LLM system for DevOps incident reasoning</p>
 </div>
-<div class="col-md-9">
+<div class="col-md-8">
 <div class="card-content">
 <h3 style="font-weight: 700; font-size: 1.4rem; color: #222; margin-bottom: 12px;">MÍMIR - Research-Oriented LLM System</h3>
 <div style="margin-bottom: 15px;">
@@ -397,14 +397,14 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- Project 4: LLM Compression & Interpretability -->
 <div class="jumbotron project-card ongoing" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
 <div class="row">
-<div class="col-md-3">
+<div class="col-md-4">
 <div style="width: 100%; height: 300px; background-color: #e9ecef; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #6c757d; font-size: 0.8rem; margin-bottom: 15px;">
 [Research Image]
 </div>
 <p style="color: #6c757d; font-size: 0.8rem; margin-bottom: 10px; text-align: center;">2025 - Present</p>
 <p style="font-size: 0.85rem; font-style: italic; color: #555; text-align: center; margin-bottom: 0;">Research on LLM compression and interpretability</p>
 </div>
-<div class="col-md-9">
+<div class="col-md-8">
 <div class="card-content">
 <h3 style="font-weight: 700; font-size: 1.4rem; color: #222; margin-bottom: 12px;">LLM Compression & Interpretability (paper in preparation)</h3>
 <div style="margin-bottom: 15px;">
@@ -431,14 +431,14 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- Project 5: OpenVINO Contributions -->
 <div class="jumbotron project-card completed" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
 <div class="row">
-<div class="col-md-3">
+<div class="col-md-4">
 <div style="width: 100%; height: 300px; background-color: #e9ecef; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #6c757d; font-size: 0.8rem; margin-bottom: 15px;">
 [OpenVINO Logo]
 </div>
 <p style="color: #6c757d; font-size: 0.8rem; margin-bottom: 10px; text-align: center;">2024 - 2025</p>
 <p style="font-size: 0.85rem; font-style: italic; color: #555; text-align: center; margin-bottom: 0;">Open-source optimization contributions to Intel OpenVINO</p>
 </div>
-<div class="col-md-9">
+<div class="col-md-8">
 <h3 style="font-weight: 700; font-size: 1.4rem; color: #222; margin-bottom: 12px;">OpenVINO Ecosystem Contributions</h3>
 <div style="margin-bottom: 15px;">
 <p style="font-size: 0.9rem; line-height: 1.5; color: #444; margin-bottom: 12px;">Contributed to open-source optimization efforts within Intel's OpenVINO ecosystem, focusing on improving model performance and compatibility for edge deployment scenarios.</p>
@@ -460,14 +460,14 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- Project 6: Advait AI Community Platform -->
 <div class="jumbotron project-card ongoing" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
 <div class="row">
-<div class="col-md-3">
+<div class="col-md-4">
 <div style="width: 100%; height: 300px; background-color: #e9ecef; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #6c757d; font-size: 0.8rem; margin-bottom: 15px;">
 [Advait Community]
 </div>
 <p style="color: #6c757d; font-size: 0.8rem; margin-bottom: 10px; text-align: center;">2025 - Present</p>
 <p style="font-size: 0.85rem; font-style: italic; color: #555; text-align: center; margin-bottom: 0;">300+ member AI community leadership and platform</p>
 </div>
-<div class="col-md-9">
+<div class="col-md-8">
 <h3 style="font-weight: 700; font-size: 1.4rem; color: #222; margin-bottom: 12px;">Advait AI Community Platform</h3>
 <div style="margin-bottom: 15px;">
 <p style="font-size: 0.9rem; line-height: 1.5; color: #444; margin-bottom: 12px;">Leading a 300+ member student-led AI community focused on research-oriented machine learning, systems engineering, and applied AI development. Building both the community culture and technical infrastructure.</p>
@@ -489,14 +489,14 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- Project 7: ML Systems Research Pipeline -->
 <div class="jumbotron project-card ongoing" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
 <div class="row">
-<div class="col-md-3">
+<div class="col-md-4">
 <div style="width: 100%; height: 300px; background-color: #e9ecef; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #6c757d; font-size: 0.8rem; margin-bottom: 15px;">
 [Research Pipeline]
 </div>
 <p style="color: #6c757d; font-size: 0.8rem; margin-bottom: 10px; text-align: center;">2024 - Present</p>
 <p style="font-size: 0.85rem; font-style: italic; color: #555; text-align: center; margin-bottom: 0;">Production-grade ML research and experimentation pipeline</p>
 </div>
-<div class="col-md-9">
+<div class="col-md-8">
 <h3 style="font-weight: 700; font-size: 1.4rem; color: #222; margin-bottom: 12px;">ML Systems Research Pipeline</h3>
 <div style="margin-bottom: 15px;">
 <p style="font-size: 0.9rem; line-height: 1.5; color: #444; margin-bottom: 12px;">Developed a comprehensive pipeline for reproducible ML research that bridges academic experimentation with production deployment. Focuses on systematic experimentation and reliable results.</p>
