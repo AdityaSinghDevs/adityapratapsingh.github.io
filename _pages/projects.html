@@ -100,18 +100,27 @@ permalink: /projects/
 }
 /* Increase overall card width */
 .projects-page .jumbotron {
-  max-width: 100% !important;
-  width: 100% !important;
+  max-width: 200% !important;
+  width: 200% !important;
   margin-left: auto !important;
   margin-right: auto !important;
 }
-/* Expand the overall page container width */
+/* Expand the overall page container width - MUST override SHB_css.scss */
 .projects-page .container-fluid {
-  max-width: 2000px !important;
+  max-width: 2500px !important;
   width: 100% !important;
 }
 .projects-page .container {
-  max-width: 1900px !important;
+  max-width: 2500px !important;
+  width: 100% !important;
+}
+/* Also override the main content area */
+.projects-page > .container-fluid {
+  max-width: 2500px !important;
+  width: 100% !important;
+}
+.projects-page .row {
+  max-width: 2500px !important;
   width: 100% !important;
 }
 /* Force full width for main content area */
