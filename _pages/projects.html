@@ -35,9 +35,60 @@ permalink: /projects/
 }
 .project-card {
   transition: opacity 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 .project-card.hidden {
   display: none;
+}
+.project-card.collapsed .card-content {
+  max-height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+.project-card.collapsed .card-content::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(transparent, rgba(250, 250, 250, 0.9));
+  pointer-events: none;
+}
+.see-more-container {
+  text-align: center;
+  margin-top: -40px;
+  position: relative;
+  z-index: 10;
+  padding-bottom: 20px;
+}
+.see-more-text {
+  color: #000;
+  cursor: pointer;
+  font-family: 'Geist', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.see-more-text:hover {
+  color: #333;
+}
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid #000;
+  margin: 8px auto 0;
+  transition: transform 0.3s ease;
+}
+.project-card.expanded .arrow-down {
+  transform: rotate(180deg);
 }
 </style>
 
@@ -45,6 +96,11 @@ permalink: /projects/
 document.addEventListener('DOMContentLoaded', function() {
   const filterButtons = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
+  
+  // Initialize cards as collapsed
+  projectCards.forEach(card => {
+    card.classList.add('collapsed');
+  });
   
   filterButtons.forEach(button => {
     button.addEventListener('click', function() {
@@ -76,6 +132,25 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
+  
+  // Handle see more/less functionality
+  document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('see-more-text') || e.target.classList.contains('arrow-down')) {
+      const container = e.target.closest('.see-more-container');
+      const card = container.closest('.project-card');
+      const seeMoreText = container.querySelector('.see-more-text');
+      
+      if (card.classList.contains('collapsed')) {
+        card.classList.remove('collapsed');
+        card.classList.add('expanded');
+        seeMoreText.textContent = 'See less';
+      } else {
+        card.classList.remove('expanded');
+        card.classList.add('collapsed');
+        seeMoreText.textContent = 'See more';
+      }
+    }
+  });
 });
 </script>
 
@@ -88,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p style="font-size: 0.95rem; font-style: italic; color: #555; text-align: center; margin-bottom: 0;">Text-to-3D mesh generation using diffusion models</p>
 </div>
 <div class="col-md-9">
+<div class="card-content">
 <h3 style="font-weight: 700; font-size: 1.6rem; color: #222; margin-bottom: 15px;">Tesseract v1 - Text-to-3D Mesh Generation System</h3>
 
 <h4 style="font-weight: 600; font-size: 1.2rem; color: #222; margin-bottom: 15px; font-style: italic;">Context & Motivation</h4>
@@ -136,10 +212,15 @@ document.addEventListener('DOMContentLoaded', function() {
 <h4 style="font-weight: 600; font-size: 1.2rem; color: #222; margin-bottom: 15px; font-style: italic;">Limitations & Reflections</h4>
 <p style="font-size: 1rem; line-height: 1.6; color: #444; margin-bottom: 15px;">Output quality is constrained by the underlying Shape-E training data and is not final production quality.</p>
 <p style="font-size: 1rem; line-height: 1.6; color: #444; margin-bottom: 15px;">Meshes are best treated as initial structures, requiring refinement in professional 3D tools.</p>
-<p style="font-size: 1rem; line-height: 1.6; color: #444; margin-bottom: 15px;">Future iterations would benefit from improved data, stronger conditioning, and tighter evaluation metrics.</p>
+<p style="font-size: 1rem; line-height: 1.6; color: #444; margin-bottom: 0;">Future iterations would benefit from improved data, stronger conditioning, and tighter evaluation metrics.</p>
 
 <h4 style="font-weight: 600; font-size: 1.2rem; color: #222; margin-bottom: 15px; font-style: italic;">Status</h4>
 <p style="font-size: 1rem; line-height: 1.6; color: #444; margin-bottom: 0;">Completed (v1) - production-ready architecture with scope for research and quality improvements in future versions.</p>
+</div>
+<div class="see-more-container">
+<div class="see-more-text">See more</div>
+<div class="arrow-down"></div>
+</div>
 </div>
 </div>
 </div>
@@ -153,6 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p style="font-size: 0.95rem; font-style: italic; color: #555; text-align: center; margin-bottom: 0;">LLM-based user persona generation from Reddit activity</p>
 </div>
 <div class="col-md-9">
+<div class="card-content">
 <h3 style="font-weight: 700; font-size: 1.6rem; color: #222; margin-bottom: 15px;">Reddit-Persona - LLM-based User Persona Generation</h3>
 <div style="margin-bottom: 20px;">
 <p style="font-size: 1rem; line-height: 1.6; color: #444; margin-bottom: 15px;">Developed a production-grade LLM system to analyze Reddit user activity and generate structured, UX-oriented personas. Balances cost, scalability, and usability through intelligent design choices.</p>
@@ -168,6 +250,11 @@ document.addEventListener('DOMContentLoaded', function() {
 <h4 style="font-weight: 600; font-size: 1.2rem; color: #222; margin-bottom: 12px; font-style: italic;">Technical Stack:</h4>
 <p style="font-size: 0.95rem; color: #444; margin-bottom: 0;">OpenAI API, Reddit PRAW, Streamlit, Data Processing, Persona Modeling</p>
 </div>
+<div class="see-more-container">
+<div class="see-more-text">See more</div>
+<div class="arrow-down"></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -180,6 +267,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p style="font-size: 0.95rem; font-style: italic; color: #555; text-align: center; margin-bottom: 0;">Research-oriented LLM system for DevOps incident reasoning</p>
 </div>
 <div class="col-md-9">
+<div class="card-content">
 <h3 style="font-weight: 700; font-size: 1.6rem; color: #222; margin-bottom: 15px;">MÍMIR - Research-Oriented LLM System</h3>
 <div style="margin-bottom: 20px;">
 <p style="font-size: 1rem; line-height: 1.6; color: #444; margin-bottom: 15px;">Designing a research-oriented LLM system to study retrieval-augmented reasoning and parameter-efficient adaptation under realistic system constraints. Emphasizes reproducible evaluation over application demos.</p>
@@ -195,6 +283,11 @@ document.addEventListener('DOMContentLoaded', function() {
 <h4 style="font-weight: 600; font-size: 1.2rem; color: #222; margin-bottom: 12px; font-style: italic;">Technical Stack:</h4>
 <p style="font-size: 0.95rem; color: #444; margin-bottom: 0;">RAG Systems, LoRA, Model Quantization, Evaluation Frameworks, System Optimization</p>
 </div>
+<div class="see-more-container">
+<div class="see-more-text">See more</div>
+<div class="arrow-down"></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -209,6 +302,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p style="font-size: 0.95rem; font-style: italic; color: #555; text-align: center; margin-bottom: 0;">Research on LLM compression and interpretability</p>
 </div>
 <div class="col-md-9">
+<div class="card-content">
 <h3 style="font-weight: 700; font-size: 1.6rem; color: #222; margin-bottom: 15px;">LLM Compression & Interpretability (paper in preparation)</h3>
 <div style="margin-bottom: 20px;">
 <p style="font-size: 1rem; line-height: 1.6; color: #444; margin-bottom: 15px;">Studying how parameter-efficient fine-tuning and compression techniques alter internal representations and attention dynamics in transformer models. This research bridges the gap between model efficiency and interpretability.</p>
@@ -222,6 +316,11 @@ document.addEventListener('DOMContentLoaded', function() {
 </ul>
 <h4 style="font-weight: 600; font-size: 1.2rem; color: #222; margin-bottom: 12px; font-style: italic;">Methodology:</h4>
 <p style="font-size: 0.95rem; color: #444; margin-bottom: 0;">Comparative Analysis, Attention Visualization, Embedding Analysis, Performance Metrics</p>
+</div>
+<div class="see-more-container">
+<div class="see-more-text">See more</div>
+<div class="arrow-down"></div>
+</div>
 </div>
 </div>
 </div>
