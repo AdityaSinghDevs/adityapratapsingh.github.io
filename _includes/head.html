@@ -3,8 +3,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-  <meta name="description" content="{{ site.description }}">
+  <title>{% if page.title %}{{ page.title | escape }}{% else %}Aditya Pratap Singh | AI Engineer | LLM Systems & Research{% endif %}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description | escape }}{% else %}Research-oriented AI engineering undergraduate focused on LLM systems, RAG, model compression, and production-grade ML pipelines.{% endif %}">
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="shortcut icon" type ="image/jpeg" href="{{ site.url }}{{ site.baseurl }}/favicon.jpeg">
@@ -27,5 +27,24 @@
   background-color: #e8d5f2 !important;
 }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Aditya Pratap Singh",
+  "url": "https://adityasinghdevs.github.io/adityapratapsingh.github.io/",
+  "sameAs": [
+    "https://github.com/AdityaSinghDevs",
+    "https://www.linkedin.com/in/adityapratapsingh",
+    "https://twitter.com/adityapsingh"
+  ],
+  "jobTitle": "AI Engineering Undergraduate",
+  "affiliation": {
+    "@type": "Organization",
+    "name": "Advait AI Community"
+  }
+}
+</script>
 
 </head>

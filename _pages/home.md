@@ -1,6 +1,7 @@
 ---
-title: "Home"
-layout: homelay
+layout: default
+title: Aditya Pratap Singh | AI Engineer & Researcher
+description: Research-oriented AI engineering undergraduate working on LLM systems, RAG, compression, and production-grade ML pipelines.
 sitemap: false
 permalink: /
 ---
@@ -36,7 +37,7 @@ I am an undergraduate engineerinng student majoring in Artificial Intelligence a
 
 My interests lie in understanding how **modern language models behave under practical constraints**, particularly in settings involving **parameter-efficient adaptation, model compression, and retrieval-augmented reasoning**. I am especially drawn to research that emphasizes **clear problem formulation, controlled experimentation, and reproducibility**, rather than isolated benchmark gains.
 
-In parallel, I have built **production-grade AI systems**, including scalable inference services, modular ML pipelines, and deployment-ready backends, following close to production level practices.These systems-level experiences strongly inform how I approach research questions in practice.
+In parallel, I have built **production-grade AI systems**, including scalable inference services, modular ML pipelines, and deployment-ready backends, following close to production level practices. These systems-level experiences strongly inform how I approach research questions in practice.
 
 I have contributed to open-source optimization efforts within **Intel's OpenVINO ecosystem**, and I currently lead **Advait**, a 300+ member AI community, where I coordinate teams, research- and project-focused initiatives and events.
 
@@ -47,7 +48,7 @@ My long-term goal is to work as a **research engineer**, bridging the gap betwee
 {% for member in site.data.pi %}
 <div class="jumbotron">
    <center>
-   <a href="{{site.url}}{{site.baseurl}}/about"><img class="profile-photo" src="{{ '/images/' | append: member.photo | relative_url }}" style="width: {{ member.width | default: 60 }}%; max-width: 250px; object-fit: {{ member.fit | default: 'cover' }}; object-position: {{ member.position_x | default: 50 }}% {{ member.position_y | default: 50 }}%; display: block; margin: 0 auto;"/></a>
+   <a href="{{site.url}}{{site.baseurl}}/about"><img class="profile-photo" src="{{ '/images/' | append: member.photo | relative_url }}" style="width: {{ member.width | default: 60 }}%; max-width: 250px; object-fit: {{ member.fit | default: 'cover' }}; object-position: {{ member.position_x | default: 50 }}% {{ member.position_y | default: 50 }}%; display: block; margin: 0 auto;" alt="Aditya Pratap Singh – AI engineering undergraduate focused on LLM systems"/></a>
    <h4 style="font-weight: bold; margin-top: 15px;">{{ member.name }}</h4>
    <div style="width: 60px; height: 1px; background-color: #000; margin: 12px auto;"></div>
    <div class="social-icons" style="margin-top: 12px; display: flex; justify-content: center; align-items: center; gap: 15px;">
@@ -85,7 +86,7 @@ My long-term goal is to work as a **research engineer**, bridging the gap betwee
 <div class="jumbotron project-card" style="margin-top: 30px; margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: background-color 0.4s ease;">
 <div class="row">
 <div class="col-md-3 col-sm-12" style="margin-bottom: 15px;">
-<img src="{{ '/images/tesseract.gif' | relative_url }}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px;" alt="Tesseract Project" loop>
+<img src="{{ '/images/tesseract.gif' | relative_url }}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px;" alt="Text-to-3D mesh generation using diffusion models – Tesseract v1" loop>
 </div>
 <div class="col-md-9 col-sm-12">
 <h5 style="font-weight: bold; margin-bottom: 8px; color: #222;">Tesseract v1 — Text-to-3D Mesh Generation Engine</h5>
@@ -101,7 +102,7 @@ My long-term goal is to work as a **research engineer**, bridging the gap betwee
 <div class="jumbotron project-card" style="margin-top: 30px; margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: background-color 0.4s ease;">
 <div class="row">
 <div class="col-md-3 col-sm-12" style="margin-bottom: 15px;">
-<img src="{{ '/images/reddit.png' | relative_url }}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px;" alt="Reddit-Persona Project">
+<img src="{{ '/images/reddit.png' | relative_url }}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px;" alt="LLM-based Reddit user persona generation system – Reddit-Persona">
 </div>
 <div class="col-md-9 col-sm-12">
 <h5 style="font-weight: bold; margin-bottom: 8px; color: #222;">Reddit-Persona — LLM-based User Persona Generation</h5>
@@ -117,7 +118,7 @@ My long-term goal is to work as a **research engineer**, bridging the gap betwee
 <div class="jumbotron project-card" style="margin-top: 30px; margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: background-color 0.4s ease;">
 <div class="row">
 <div class="col-md-3 col-sm-12" style="margin-bottom: 15px;">
-<img src="{{ '/images/mimir.png' | relative_url }}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px;" alt="MÍMIR Project">
+<img src="{{ '/images/mimir.png' | relative_url }}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px;" alt="Research-oriented LLM system for DevOps incident reasoning – MÍMIR">
 </div>
 <div class="col-md-9 col-sm-12">
 <h5 style="font-weight: bold; margin-bottom: 8px; color: #222;">MÍMIR — Research-Oriented LLM System (Early Stage)</h5>
