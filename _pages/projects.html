@@ -104,6 +104,64 @@ permalink: /projects/
   margin-left: auto !important;
   margin-right: auto !important;
 }
+/* Carousel styles */
+.image-carousel {
+  position: relative;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.main-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.thumbnail-container {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  overflow-x: auto;
+  padding: 5px 0;
+}
+.thumbnail {
+  width: 60px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  border: 2px solid transparent;
+}
+.thumbnail:hover {
+  opacity: 1;
+}
+.thumbnail.active {
+  opacity: 1;
+  border-color: #007bff;
+}
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  z-index: 10;
+  font-size: 14px;
+}
+.carousel-arrow.prev {
+  left: 10px;
+}
+.carousel-arrow.next {
+  right: 10px;
+}
+.carousel-arrow:hover {
+  background: rgba(0,0,0,0.7);
+}
 /* Expand the overall page container width */
 .projects-page .container-fluid {
   max-width: 1400px !important;
