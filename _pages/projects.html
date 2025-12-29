@@ -252,7 +252,7 @@ body .projects-page .row {
 .main-image {
   width: 100%;
   height: auto;
-  max-height: 400px;
+  max-height: 300px;
   object-fit: contain;
   border-radius: 8px;
   background-color: #f8f9fa;
@@ -276,27 +276,28 @@ body .projects-page .row {
 
 .thumbnail-scroll {
   display: flex;
-  gap: 8px;
-  overflow-x: auto;
+  gap: 6px;
+  overflow: hidden;
   scroll-behavior: smooth;
   flex: 1;
   padding: 5px 0;
+  justify-content: center;
 }
 
 .thumbnail-arrow {
   background: rgba(0,0,0,0.5);
   color: white;
   border: none;
-  padding: 8px;
+  padding: 6px;
   cursor: pointer;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 10px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 30px;
-  height: 30px;
+  min-width: 24px;
+  height: 24px;
 }
 
 .thumbnail-arrow:hover {
@@ -309,8 +310,8 @@ body .projects-page .row {
 }
 
 .thumbnail {
-  width: 60px;
-  height: 45px;
+  width: 50px;
+  height: 38px;
   object-fit: cover;
   border-radius: 4px;
   cursor: pointer;
@@ -494,11 +495,25 @@ document.addEventListener('DOMContentLoaded', function() {
     function scrollThumbnailIntoView() {
       const activeThumb = thumbnails[currentIndex];
       if (activeThumb && thumbnailScroll) {
-        const scrollLeft = activeThumb.offsetLeft - (thumbnailScroll.offsetWidth / 2) + (activeThumb.offsetWidth / 2);
-        thumbnailScroll.scrollTo({
-          left: scrollLeft,
-          behavior: 'smooth'
-        });
+        // Calculate center position without using scroll
+        const containerWidth = thumbnailScroll.offsetWidth;
+        const totalWidth = thumbnails.length * 56; // 50px width + 6px gap
+        const centerOffset = (containerWidth - 56) / 2; // Center single thumbnail
+        const targetOffset = currentIndex * 56;
+        
+        // If images don't overflow, just center the active one
+        if (totalWidth <= containerWidth) {
+          // Use transform to center the active thumbnail
+          const offset = centerOffset - targetOffset;
+          thumbnailScroll.style.transform = `translateX(${offset}px)`;
+        } else {
+          // Fallback to scroll if overflow occurs
+          const scrollLeft = activeThumb.offsetLeft - (thumbnailScroll.offsetWidth / 2) + (activeThumb.offsetWidth / 2);
+          thumbnailScroll.scrollTo({
+            left: scrollLeft,
+            behavior: 'smooth'
+          });
+        }
       }
     }
     
@@ -527,9 +542,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <button class="thumbnail-arrow prev" disabled>‹</button>
 <div class="thumbnail-scroll">
 <img src="{{ '/images/tesseract.gif' | relative_url }}" class="thumbnail active" alt="Text-to-3D mesh generation using diffusion models - Tesseract v1">
-<img src="https://picsum.photos/seed/tesseract2/60/45.jpg" class="thumbnail" alt="Tesseract project screenshot 2">
-<img src="https://picsum.photos/seed/tesseract3/60/45.jpg" class="thumbnail" alt="Tesseract project screenshot 3">
-<img src="https://picsum.photos/seed/tesseract4/60/45.jpg" class="thumbnail" alt="Tesseract project screenshot 4">
+<img src="https://picsum.photos/seed/tesseract2/50/38.jpg" class="thumbnail" alt="Tesseract project screenshot 2">
+<img src="https://picsum.photos/seed/tesseract3/50/38.jpg" class="thumbnail" alt="Tesseract project screenshot 3">
+<img src="https://picsum.photos/seed/tesseract4/50/38.jpg" class="thumbnail" alt="Tesseract project screenshot 4">
 </div>
 <button class="thumbnail-arrow next">›</button>
 </div>
@@ -620,9 +635,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <button class="thumbnail-arrow prev" disabled>‹</button>
 <div class="thumbnail-scroll">
 <img src="{{ '/images/reddit.png' | relative_url }}" class="thumbnail active" alt="LLM-based Reddit user persona generation system - Reddit-Persona">
-<img src="https://picsum.photos/seed/reddit2/60/45.jpg" class="thumbnail" alt="Reddit-Persona project screenshot 2">
-<img src="https://picsum.photos/seed/reddit3/60/45.jpg" class="thumbnail" alt="Reddit-Persona project screenshot 3">
-<img src="https://picsum.photos/seed/reddit4/60/45.jpg" class="thumbnail" alt="Reddit-Persona project screenshot 4">
+<img src="https://picsum.photos/seed/reddit2/50/38.jpg" class="thumbnail" alt="Reddit-Persona project screenshot 2">
+<img src="https://picsum.photos/seed/reddit3/50/38.jpg" class="thumbnail" alt="Reddit-Persona project screenshot 3">
+<img src="https://picsum.photos/seed/reddit4/50/38.jpg" class="thumbnail" alt="Reddit-Persona project screenshot 4">
 </div>
 <button class="thumbnail-arrow next">›</button>
 </div>
@@ -724,9 +739,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <button class="thumbnail-arrow prev" disabled>‹</button>
 <div class="thumbnail-scroll">
 <img src="{{ '/images/mimir.png' | relative_url }}" class="thumbnail active" alt="Research-oriented LLM system for DevOps incident reasoning - MÍMIR">
-<img src="https://picsum.photos/seed/mimir2/60/45.jpg" class="thumbnail" alt="MÍMIR project screenshot 2">
-<img src="https://picsum.photos/seed/mimir3/60/45.jpg" class="thumbnail" alt="MÍMIR project screenshot 3">
-<img src="https://picsum.photos/seed/mimir4/60/45.jpg" class="thumbnail" alt="MÍMIR project screenshot 4">
+<img src="https://picsum.photos/seed/mimir2/50/38.jpg" class="thumbnail" alt="MÍMIR project screenshot 2">
+<img src="https://picsum.photos/seed/mimir3/50/38.jpg" class="thumbnail" alt="MÍMIR project screenshot 3">
+<img src="https://picsum.photos/seed/mimir4/50/38.jpg" class="thumbnail" alt="MÍMIR project screenshot 4">
 </div>
 <button class="thumbnail-arrow next">›</button>
 </div>
@@ -769,9 +784,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <button class="thumbnail-arrow prev" disabled>‹</button>
 <div class="thumbnail-scroll">
 <img src="{{ '/images/skysentinel 1.png' | relative_url }}" class="thumbnail active" alt="SkySentinel-X micro-Doppler target classification system">
-<img src="https://picsum.photos/seed/skysentinel2/60/45.jpg" class="thumbnail" alt="SkySentinel-X project screenshot 2">
-<img src="https://picsum.photos/seed/skysentinel3/60/45.jpg" class="thumbnail" alt="SkySentinel-X project screenshot 3">
-<img src="https://picsum.photos/seed/skysentinel4/60/45.jpg" class="thumbnail" alt="SkySentinel-X project screenshot 4">
+<img src="https://picsum.photos/seed/skysentinel2/50/38.jpg" class="thumbnail" alt="SkySentinel-X project screenshot 2">
+<img src="https://picsum.photos/seed/skysentinel3/50/38.jpg" class="thumbnail" alt="SkySentinel-X project screenshot 3">
+<img src="https://picsum.photos/seed/skysentinel4/50/38.jpg" class="thumbnail" alt="SkySentinel-X project screenshot 4">
 </div>
 <button class="thumbnail-arrow next">›</button>
 </div>
@@ -937,9 +952,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <button class="thumbnail-arrow prev" disabled>‹</button>
 <div class="thumbnail-scroll">
 <img src="{{ '/images/orca 1.png' | relative_url }}" class="thumbnail active" alt="ORCA wearable computer vision glasses aid system">
-<img src="https://picsum.photos/seed/orca2/60/45.jpg" class="thumbnail" alt="ORCA project screenshot 2">
-<img src="https://picsum.photos/seed/orca3/60/45.jpg" class="thumbnail" alt="ORCA project screenshot 3">
-<img src="https://picsum.photos/seed/orca4/60/45.jpg" class="thumbnail" alt="ORCA project screenshot 4">
+<img src="https://picsum.photos/seed/orca2/50/38.jpg" class="thumbnail" alt="ORCA project screenshot 2">
+<img src="https://picsum.photos/seed/orca3/50/38.jpg" class="thumbnail" alt="ORCA project screenshot 3">
+<img src="https://picsum.photos/seed/orca4/50/38.jpg" class="thumbnail" alt="ORCA project screenshot 4">
 </div>
 <button class="thumbnail-arrow next">›</button>
 </div>
@@ -1066,9 +1081,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <button class="thumbnail-arrow prev" disabled>‹</button>
 <div class="thumbnail-scroll">
 <img src="{{ '/images/vulkyrie 1.png' | relative_url }}" class="thumbnail active" alt="Vulkyrie edge-deployed contamination detection system">
-<img src="https://picsum.photos/seed/vulkyrie2/60/45.jpg" class="thumbnail" alt="Vulkyrie project screenshot 2">
-<img src="https://picsum.photos/seed/vulkyrie3/60/45.jpg" class="thumbnail" alt="Vulkyrie project screenshot 3">
-<img src="https://picsum.photos/seed/vulkyrie4/60/45.jpg" class="thumbnail" alt="Vulkyrie project screenshot 4">
+<img src="https://picsum.photos/seed/vulkyrie2/50/38.jpg" class="thumbnail" alt="Vulkyrie project screenshot 2">
+<img src="https://picsum.photos/seed/vulkyrie3/50/38.jpg" class="thumbnail" alt="Vulkyrie project screenshot 3">
+<img src="https://picsum.photos/seed/vulkyrie4/50/38.jpg" class="thumbnail" alt="Vulkyrie project screenshot 4">
 </div>
 <button class="thumbnail-arrow next">›</button>
 </div>
