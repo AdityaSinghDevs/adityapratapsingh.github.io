@@ -527,11 +527,75 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Initialize all carousels on the page
   document.querySelectorAll('.image-carousel').forEach(initCarousel);
+  
+  // Handle URL parameter for auto-expanding specific project
+  function handleProjectParameter() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const projectId = urlParams.get('project');
+    
+    if (projectId) {
+      const targetProjectId = `project-${projectId}`;
+      const targetCard = document.getElementById(targetProjectId);
+      
+      if (targetCard) {
+        // Initialize cards as collapsed first
+        projectCards.forEach(card => {
+          card.classList.add('collapsed');
+          const cardContent = card.querySelector('.card-content');
+          if (cardContent) {
+            cardContent.style.maxHeight = '400px';
+            cardContent.style.overflow = 'hidden';
+          }
+        });
+        
+        // Expand the target project
+        setTimeout(() => {
+          const seeMoreContainer = targetCard.querySelector('.see-more-container');
+          if (seeMoreContainer) {
+            // Trigger the expand functionality
+            const seeMoreText = seeMoreContainer.querySelector('.see-more-text');
+            const cardContent = targetCard.querySelector('.card-content');
+            
+            if (cardContent && seeMoreText) {
+              targetCard.classList.remove('collapsed');
+              targetCard.classList.add('expanded');
+              seeMoreText.textContent = 'See less';
+              
+              // Temporarily disable transition to measure full height
+              cardContent.style.transition = 'none';
+              cardContent.style.maxHeight = 'none';
+              const fullHeight = cardContent.scrollHeight;
+              
+              // Reset to collapsed height and then animate to full height
+              cardContent.style.maxHeight = '400px';
+              cardContent.style.overflow = 'hidden';
+              
+              // Force reflow
+              cardContent.offsetHeight;
+              
+              // Enable transition and expand
+              cardContent.style.transition = 'max-height 0.5s ease-in-out';
+              cardContent.style.maxHeight = fullHeight + 'px';
+            }
+          }
+          
+          // Smooth scroll to the project
+          targetCard.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }, 500);
+      }
+    }
+  }
+  
+  // Call the function after page load
+  handleProjectParameter();
 });
 </script>
 
 <!-- Project 1: Tesseract -->
-<div class="jumbotron project-card completed" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+<div class="jumbotron project-card completed" id="project-tesseract" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
 <div class="row">
 <div class="col-md-4">
 <div class="image-carousel">
@@ -624,7 +688,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 <!-- Project 2: Reddit-Persona -->
-<div class="jumbotron project-card completed" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+<div class="jumbotron project-card completed" id="project-reddit-persona" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
 <div class="row">
 <div class="col-md-4">
 <div class="image-carousel">
@@ -728,7 +792,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 <!-- Project 3: MÍMIR -->
-<div class="jumbotron project-card ongoing" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+<div class="jumbotron project-card ongoing" id="project-mimir" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
 <div class="row">
 <div class="col-md-4">
 <div class="image-carousel">

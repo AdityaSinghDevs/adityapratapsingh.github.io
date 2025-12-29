@@ -84,7 +84,7 @@ My long-term goal is to work as a **research engineer**, bridging the gap betwee
 
 ## Selected Projects
 
-<div class="jumbotron project-card" style="margin-top: 30px; margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: background-color 0.4s ease;">
+<div class="jumbotron project-card clickable-project" data-project="tesseract" style="margin-top: 30px; margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: background-color 0.4s ease; cursor: pointer;">
 <div class="row">
 <div class="col-md-3 col-sm-12" style="margin-bottom: 15px;">
 <img src="{{ '/images/tesseract.gif' | relative_url }}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px;" alt="Text-to-3D mesh generation using diffusion models – Tesseract v1" loop>
@@ -100,7 +100,7 @@ My long-term goal is to work as a **research engineer**, bridging the gap betwee
 </div>
 </div>
 
-<div class="jumbotron project-card" style="margin-top: 30px; margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: background-color 0.4s ease;">
+<div class="jumbotron project-card clickable-project" data-project="reddit-persona" style="margin-top: 30px; margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: background-color 0.4s ease; cursor: pointer;">
 <div class="row">
 <div class="col-md-3 col-sm-12" style="margin-bottom: 15px;">
 <img src="{{ '/images/reddit.png' | relative_url }}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px;" alt="LLM-based Reddit user persona generation system – Reddit-Persona">
@@ -116,7 +116,7 @@ My long-term goal is to work as a **research engineer**, bridging the gap betwee
 </div>
 </div>
 
-<div class="jumbotron project-card" style="margin-top: 30px; margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: background-color 0.4s ease;">
+<div class="jumbotron project-card clickable-project" data-project="mimir" style="margin-top: 30px; margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: background-color 0.4s ease; cursor: pointer;">
 <div class="row">
 <div class="col-md-3 col-sm-12" style="margin-bottom: 15px;">
 <img src="{{ '/images/mimir.png' | relative_url }}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 6px;" alt="Research-oriented LLM system for DevOps incident reasoning – MÍMIR">
@@ -191,3 +191,29 @@ My long-term goal is to work as a **research engineer**, bridging the gap betwee
 </div>
 </div>
 </div> <!-- Close home-page div -->
+
+<style>
+.clickable-project:hover {
+  background-color: #f0f0f0 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.clickable-project {
+  transition: all 0.3s ease;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const clickableProjects = document.querySelectorAll('.clickable-project');
+  
+  clickableProjects.forEach(card => {
+    card.addEventListener('click', function() {
+      const projectId = this.getAttribute('data-project');
+      const projectsUrl = '{{ site.url }}{{ site.baseurl }}/projects/';
+      window.location.href = `${projectsUrl}?project=${projectId}`;
+    });
+  });
+});
+</script>
