@@ -123,12 +123,28 @@ body .projects-page .row {
   margin-bottom: 12px;
 }
 
+/* Enhanced section headers with smooth transitions */
 .project-subtitle {
   font-weight: 600;
   font-size: 1.1rem;
   color: #222;
   margin-bottom: 10px;
   font-style: italic;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.project-card.collapsed .project-subtitle {
+  font-weight: 600;
+  color: #333;
+}
+
+.project-card.expanded .project-subtitle {
+  font-weight: 700;
+  color: #111;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 4px;
+  transform: translateX(2px);
 }
 
 .project-text {
@@ -268,7 +284,7 @@ body .projects-page .row {
 
 .thumbnail-scroll {
   display: flex;
-  gap: 6px;
+  gap: 5px;
   overflow-x: auto;
   scroll-behavior: smooth;
   flex: 1;
@@ -276,6 +292,16 @@ body .projects-page .row {
   justify-content: flex-start;
   scrollbar-width: thin;
   -webkit-overflow-scrolling: touch;
+}
+
+.carousel-label {
+  font-size: 0.75rem;
+  color: #6c757d;
+  font-weight: 500;
+  margin-bottom: 8px;
+  text-align: center;
+  font-family: 'Geist', sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .thumbnail-scroll::-webkit-scrollbar {
@@ -322,8 +348,8 @@ body .projects-page .row {
 }
 
 .thumbnail {
-  width: 50px;
-  height: 38px;
+  width: 42px;
+  height: 32px;
   object-fit: cover;
   border-radius: 4px;
   cursor: pointer;
@@ -600,13 +626,14 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="col-md-4">
 <div class="image-carousel">
 <img src="{{ '/images/tesseract.gif' | relative_url }}" class="main-image" alt="Text-to-3D mesh generation using diffusion models - Tesseract v1">
+<div class="carousel-label">Visual Samples</div>
 <div class="thumbnail-controls">
 <button class="thumbnail-arrow prev" disabled>‹</button>
 <div class="thumbnail-scroll">
 <img src="{{ '/images/tesseract.gif' | relative_url }}" class="thumbnail active" alt="Text-to-3D mesh generation using diffusion models - Tesseract v1">
-<img src="https://picsum.photos/seed/tesseract2/50/38.jpg" class="thumbnail" alt="Tesseract project screenshot 2">
-<img src="https://picsum.photos/seed/tesseract3/50/38.jpg" class="thumbnail" alt="Tesseract project screenshot 3">
-<img src="https://picsum.photos/seed/tesseract4/50/38.jpg" class="thumbnail" alt="Tesseract project screenshot 4">
+<img src="https://picsum.photos/seed/tesseract2/42/32.jpg" class="thumbnail" alt="Tesseract project screenshot 2">
+<img src="https://picsum.photos/seed/tesseract3/42/32.jpg" class="thumbnail" alt="Tesseract project screenshot 3">
+<img src="https://picsum.photos/seed/tesseract4/42/32.jpg" class="thumbnail" alt="Tesseract project screenshot 4">
 </div>
 <button class="thumbnail-arrow next">›</button>
 </div>
@@ -693,13 +720,14 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="col-md-4">
 <div class="image-carousel">
 <img src="{{ '/images/reddit.png' | relative_url }}" class="main-image" alt="LLM-based Reddit user persona generation system - Reddit-Persona">
+<div class="carousel-label">Visual Samples</div>
 <div class="thumbnail-controls">
 <button class="thumbnail-arrow prev" disabled>‹</button>
 <div class="thumbnail-scroll">
 <img src="{{ '/images/reddit.png' | relative_url }}" class="thumbnail active" alt="LLM-based Reddit user persona generation system - Reddit-Persona">
-<img src="https://picsum.photos/seed/reddit2/50/38.jpg" class="thumbnail" alt="Reddit-Persona project screenshot 2">
-<img src="https://picsum.photos/seed/reddit3/50/38.jpg" class="thumbnail" alt="Reddit-Persona project screenshot 3">
-<img src="https://picsum.photos/seed/reddit4/50/38.jpg" class="thumbnail" alt="Reddit-Persona project screenshot 4">
+<img src="https://picsum.photos/seed/reddit2/42/32.jpg" class="thumbnail" alt="Reddit-Persona project screenshot 2">
+<img src="https://picsum.photos/seed/reddit3/42/32.jpg" class="thumbnail" alt="Reddit-Persona project screenshot 3">
+<img src="https://picsum.photos/seed/reddit4/42/32.jpg" class="thumbnail" alt="Reddit-Persona project screenshot 4">
 </div>
 <button class="thumbnail-arrow next">›</button>
 </div>
@@ -797,13 +825,14 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="col-md-4">
 <div class="image-carousel">
 <img src="{{ '/images/mimir.png' | relative_url }}" class="main-image" alt="Research-oriented LLM system for DevOps incident reasoning - MÍMIR">
+<div class="carousel-label">Visual Samples</div>
 <div class="thumbnail-controls">
 <button class="thumbnail-arrow prev" disabled>‹</button>
 <div class="thumbnail-scroll">
 <img src="{{ '/images/mimir.png' | relative_url }}" class="thumbnail active" alt="Research-oriented LLM system for DevOps incident reasoning - MÍMIR">
-<img src="https://picsum.photos/seed/mimir2/50/38.jpg" class="thumbnail" alt="MÍMIR project screenshot 2">
-<img src="https://picsum.photos/seed/mimir3/50/38.jpg" class="thumbnail" alt="MÍMIR project screenshot 3">
-<img src="https://picsum.photos/seed/mimir4/50/38.jpg" class="thumbnail" alt="MÍMIR project screenshot 4">
+<img src="https://picsum.photos/seed/mimir2/42/32.jpg" class="thumbnail" alt="MÍMIR project screenshot 2">
+<img src="https://picsum.photos/seed/mimir3/42/32.jpg" class="thumbnail" alt="MÍMIR project screenshot 3">
+<img src="https://picsum.photos/seed/mimir4/42/32.jpg" class="thumbnail" alt="MÍMIR project screenshot 4">
 </div>
 <button class="thumbnail-arrow next">›</button>
 </div>
@@ -842,13 +871,14 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="col-md-4">
 <div class="image-carousel">
 <img src="{{ '/images/skysentinel 1.png' | relative_url }}" class="main-image" alt="SkySentinel-X micro-Doppler target classification system">
+<div class="carousel-label">Visual Samples</div>
 <div class="thumbnail-controls">
 <button class="thumbnail-arrow prev" disabled>‹</button>
 <div class="thumbnail-scroll">
 <img src="{{ '/images/skysentinel 1.png' | relative_url }}" class="thumbnail active" alt="SkySentinel-X micro-Doppler target classification system">
-<img src="https://picsum.photos/seed/skysentinel2/50/38.jpg" class="thumbnail" alt="SkySentinel-X project screenshot 2">
-<img src="https://picsum.photos/seed/skysentinel3/50/38.jpg" class="thumbnail" alt="SkySentinel-X project screenshot 3">
-<img src="https://picsum.photos/seed/skysentinel4/50/38.jpg" class="thumbnail" alt="SkySentinel-X project screenshot 4">
+<img src="https://picsum.photos/seed/skysentinel2/42/32.jpg" class="thumbnail" alt="SkySentinel-X project screenshot 2">
+<img src="https://picsum.photos/seed/skysentinel3/42/32.jpg" class="thumbnail" alt="SkySentinel-X project screenshot 3">
+<img src="https://picsum.photos/seed/skysentinel4/42/32.jpg" class="thumbnail" alt="SkySentinel-X project screenshot 4">
 </div>
 <button class="thumbnail-arrow next">›</button>
 </div>
@@ -1010,13 +1040,14 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="col-md-4">
 <div class="image-carousel">
 <img src="{{ '/images/orca 1.png' | relative_url }}" class="main-image" alt="ORCA wearable computer vision glasses aid system">
+<div class="carousel-label">Visual Samples</div>
 <div class="thumbnail-controls">
 <button class="thumbnail-arrow prev" disabled>‹</button>
 <div class="thumbnail-scroll">
 <img src="{{ '/images/orca 1.png' | relative_url }}" class="thumbnail active" alt="ORCA wearable computer vision glasses aid system">
-<img src="https://picsum.photos/seed/orca2/50/38.jpg" class="thumbnail" alt="ORCA project screenshot 2">
-<img src="https://picsum.photos/seed/orca3/50/38.jpg" class="thumbnail" alt="ORCA project screenshot 3">
-<img src="https://picsum.photos/seed/orca4/50/38.jpg" class="thumbnail" alt="ORCA project screenshot 4">
+<img src="https://picsum.photos/seed/orca2/42/32.jpg" class="thumbnail" alt="ORCA project screenshot 2">
+<img src="https://picsum.photos/seed/orca3/42/32.jpg" class="thumbnail" alt="ORCA project screenshot 3">
+<img src="https://picsum.photos/seed/orca4/42/32.jpg" class="thumbnail" alt="ORCA project screenshot 4">
 </div>
 <button class="thumbnail-arrow next">›</button>
 </div>
@@ -1139,13 +1170,14 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="col-md-4">
 <div class="image-carousel">
 <img src="{{ '/images/vulkyrie 1.png' | relative_url }}" class="main-image" alt="Vulkyrie edge-deployed contamination detection system">
+<div class="carousel-label">Visual Samples</div>
 <div class="thumbnail-controls">
 <button class="thumbnail-arrow prev" disabled>‹</button>
 <div class="thumbnail-scroll">
 <img src="{{ '/images/vulkyrie 1.png' | relative_url }}" class="thumbnail active" alt="Vulkyrie edge-deployed contamination detection system">
-<img src="https://picsum.photos/seed/vulkyrie2/50/38.jpg" class="thumbnail" alt="Vulkyrie project screenshot 2">
-<img src="https://picsum.photos/seed/vulkyrie3/50/38.jpg" class="thumbnail" alt="Vulkyrie project screenshot 3">
-<img src="https://picsum.photos/seed/vulkyrie4/50/38.jpg" class="thumbnail" alt="Vulkyrie project screenshot 4">
+<img src="https://picsum.photos/seed/vulkyrie2/42/32.jpg" class="thumbnail" alt="Vulkyrie project screenshot 2">
+<img src="https://picsum.photos/seed/vulkyrie3/42/32.jpg" class="thumbnail" alt="Vulkyrie project screenshot 3">
+<img src="https://picsum.photos/seed/vulkyrie4/42/32.jpg" class="thumbnail" alt="Vulkyrie project screenshot 4">
 </div>
 <button class="thumbnail-arrow next">›</button>
 </div>
