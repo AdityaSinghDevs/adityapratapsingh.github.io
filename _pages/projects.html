@@ -28,6 +28,24 @@ permalink: /projects/
 </div>
 
 <style>
+/* CRITICAL: Override Bootstrap layout for projects page */
+.projects-page .container-fluid,
+.projects-page > .container-fluid,
+body .projects-page .container-fluid {
+  max-width: 3000px !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+.projects-page .row,
+.projects-page > .row,
+body .projects-page .row {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 /* Independent layout - no dependency on SHB_css.scss */
 .projects-page {
   width: 100%;
@@ -36,7 +54,7 @@ permalink: /projects/
 
 /* Custom container with full control */
 .projects-container {
-  max-width: 2500px;
+  max-width: 3000px;
   margin: 0 auto;
   padding: 0 20px;
   width: 100%;
@@ -45,7 +63,7 @@ permalink: /projects/
 /* Center content wrapper */
 .content-wrapper {
   width: 100%;
-  max-width: 2500px;
+  max-width: 3000px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -58,7 +76,7 @@ permalink: /projects/
   padding: 25px;
   margin: 30px auto;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  max-width: 2400px;
+  max-width: 3000px;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -411,55 +429,64 @@ document.addEventListener('DOMContentLoaded', function() {
 <h3 class="project-title">Tesseract v1 - Text-to-3D Mesh Generation System</h3>
 
 <h4 class="project-subtitle">Context & Motivation</h4>
-<p class="project-text">Early-stage 3D asset creation is slow and labor-intensive, often requiring artists to start from scratch before meaningful iteration can begin.</p>
-<p class="project-text">Existing text-to-3D models are difficult to integrate into real workflows due to fragile scripts, lack of reproducibility, and poor deployment ergonomics.</p>
+<p class="project-text">I built Tesseract as my first flagship, end-to-end ML system to deliberately move beyond notebook-driven experiments and understand what separates production-grade AI systems from typical college-level projects..</p>
+<p class="project-text">Early-stage 3D asset creation is slow and labor-intensive, often forcing artists and developers to start from scratch before any meaningful iteration can begin. While text-to-3D diffusion models exist, most are released as fragile scripts or demos that are difficult to integrate into real workflows, lack reproducibility, and are not designed for deployment or scaling.</p>
+<p class="project-text">I wanted to explore how a research model could be wrapped into a reliable, scriptable, and scalable system, usable through real interfaces rather than isolated experiments.</p>
 
 <h4 class="project-subtitle">Problem Statement</h4>
-<p class="project-text">How can text-conditioned 3D mesh generation be exposed as a reliable, scriptable, and scalable system, suitable for batch workflows and service-based integration, rather than as a research demo or notebook?</p>
+<p class="project-text">How can text-conditioned 3D mesh generation be exposed as a reliable, production-ready system suitable for batch workflows, service-based integration, and reproducible experimentation—rather than remaining a research demo or notebook artifact?</p>
 
 <h4 class="project-subtitle">System Overview</h4>
-<p class="project-text">Tesseract v1 is a modular, production-oriented ML pipeline that wraps a diffusion-based 3D generation model and exposes it through:</p>
+<p class="project-text">Tesseract v1 is a modular, production-oriented ML pipeline that wraps a diffusion-based 3D generation model and exposes it through multiple interfaces:</p>
 <ul class="project-list">
-<li><strong>Stateless FastAPI service</strong> for asynchronous job-based generation</li>
-<li><strong>CLI interface</strong> for local and batch workflows</li>
+<li><strong>Stateless FastAPI service</strong> for supporting asynchronous, job-based mesh generation</li>
+<li><strong>Custom CLI interface</strong> for local usage, batch generation and scripting</li>
+<li><strong>Config-driven execution model</strong> (YAML-based) to enable reproducible runs and controlled experimentation</li>
 </ul>
-<p class="project-text">The system manages prompt ingestion, latent generation, mesh decoding, file export, and optional preview rendering in a unified pipeline.</p>
+<p class="project-text">The system manages prompt ingestion, latent generation, mesh decoding, file export, and optional preview rendering in a unified pipeline. and is is intentionally designed to be stateless at the service layer, device-aware (GPU with CPU fallback), and structured in a way that is compatible with containerized deployment patterns.</p>
 
-<h4 class="project-subtitle">Key Design Decisions</h4>
+<h4 class="project-subtitle">Key Engineering Decisions</h4>
+<p class="project-text">Rather than focusing on model novelty, I centered this project around system reliability, iteration ergonomics, and realistic integration constraints:</p>
 <ul class="project-list">
-<li><strong>Asynchronous job execution</strong> to avoid blocking generation requests and support concurrent workloads.</li>
-<li><strong>Stateless API design</strong>, enabling horizontal scaling behind a load balancer.</li>
-<li><strong>Config-driven execution (YAML)</strong> to ensure reproducibility and controlled experimentation.</li>
-<li><strong>Separation of concerns</strong> between core model logic, API layer, rendering utilities, and configuration.</li>
-<li><strong>Device-aware execution</strong> with automatic GPU/CPU fallback to improve robustness across environments.</li>
+<li><strong>Custom CLI with explicit flags</strong> for prompts, batching, output formats, and dry-runs, enabling reproducible experimentation outside notebooks</li>
+<li><strong>Batch processing support</strong> to generate multiple samples per prompt, both to improve output selection and to stress-test the pipeline under heavier workloads</li>
+<li><strong>Latent cache saving and resume support</strong>, allowing generation to continue from intermediate latent states instead of restarting full runs</li>
+<li><strong>Asynchronous job handling</strong> to avoid blocking execution and support concurrent requests</li>
+<li><strong>Modular system boundaries</strong> separating API, orchestration, decoding, rendering, and configuration layers</li>
 </ul>
+<p class="project-text">While initially attempting to extract only the minimal components required for text-to-3D generation, I found that Shape-E's research-oriented codebase was highly coupled, with core functionality spanning a large dependency graph. Rather than risk subtle breakage or silent correctness issues, I chose to vendor the full Shape-E project into the core, and build clean abstraction layers around it instead of aggressively pruning internals.</p>
+<p class="project-text">This decision favored correctness, stability, and debuggability over premature modularization.</p>
 
 <h4 class="project-subtitle">Engineering & Stack</h4>
 <ul class="project-list">
 <li><strong>Core:</strong> Python, PyTorch, Shape-E (text-conditioned diffusion)</li>
-<li><strong>Serving:</strong> FastAPI, Uvicorn</li>
-<li><strong>Interfaces:</strong> REST API + CLI</li>
-<li><strong>Ops & Reliability:</strong> structured logging, isolated output directories, minimal external dependencies</li>
-<li><strong>Deployment-ready:</strong> compatible with containerization and Kubernetes scaling patterns</li>
+<li><strong>Interfaces:</strong> Custom CLI, FastAPI (REST)</li>
+<li><strong>Execution:</strong> Async job orchestration, batch processing, latent caching</li>
+<li><strong>Configuration:</strong> YAML-driven runtime configuration</li>
+<li><strong>Observability:</strong> Structured logging across pipeline stages</li>
+<li><strong>Deployment posture:</strong> Designed to be container-friendly and compatible with common Docker and Kubernetes deployment patterns</li>
 </ul>
+<p class="project-text">The focus was on keeping the system simple to reason about, easy to debug, and reproducible, rather than optimizing prematurely for scale.</p>
 
 <h4 class="project-subtitle">Evaluation & Validation</h4>
-<p class="project-text">Output quality evaluated qualitatively through mesh inspection and downstream usability as a modeling "starting canvas."</p>
-<p class="project-text">Performance validated via:</p>
+<p class="project-text">Evaluation focused on system correctness and operational behavior, rather than benchmark scores:</p>
 <ul class="project-list">
-<li>Concurrent job handling</li>
-<li>Memory usage under different batch sizes</li>
-<li>Latency-quality tradeoffs through configurable diffusion parameters</li>
+<li><strong>Qualitative inspection</strong> of generated meshes to assess usability as starting canvases</li>
+<li><strong>Validation of batch execution</strong> under different memory and latency configurations</li>
+<li><strong>Failure-mode testing</strong> around decoding, rendering, and partial pipeline crashes</li>
+<li><strong>Verification</strong> that cached latents could reliably resume downstream stages</li>
 </ul>
-<p class="project-text">Emphasis placed on system correctness and stability, rather than benchmark scores.</p>
+<p class="project-text">The emphasis was on ensuring the pipeline behaved predictably under iteration and failure, rather than optimizing for output aesthetics alone.</p>
 
 <h4 class="project-subtitle">Limitations & Reflections</h4>
-<p class="project-text">Output quality is constrained by the underlying Shape-E training data and is not final production quality.</p>
-<p class="project-text">Meshes are best treated as initial structures, requiring refinement in professional 3D tools.</p>
-<p class="project-text">Future iterations would benefit from improved data, stronger conditioning, and tighter evaluation metrics.</p>
+<p class="project-text">Several engineering choices emerged directly from repeated friction during development.</p>
+<p class="project-text">I introduced batch processing not only to increase the likelihood of obtaining useful outputs from stochastic diffusion, but also to intentionally stress-test the pipeline and observe how resource usage and failure modes surfaced under load.</p>
+<p class="project-text">Similarly, latent cache saving was added after encountering multiple cases where decoding or rendering failures—often due to small bugs or misconfigurations—forced the entire diffusion process to restart. Persisting intermediate latents significantly reduced wasted compute and made debugging faster and less frustrating.</p>
+<p class="project-text">Integrating a research codebase like Shape-E also highlighted the tradeoff between ideal modularity and practical correctness. This project reinforced that, in applied ML systems, stability and recoverability often matter more than architectural purity.</p>
+<p class="project-text">As my first flagship, end-to-end ML system, Tesseract helped solidify my understanding of what distinguishes robust engineering from experimental code: careful state management, clear boundaries, and designing for things to fail gracefully.</p>
 
 <h4 class="project-subtitle">Status</h4>
-<p class="project-text">Completed (v1) - production-ready architecture with scope for research and quality improvements in future versions.</p>
+<p class="project-text">Completed (v1) — a production-oriented architecture with clear scope for future improvements in model quality, evaluation rigor, and modular refinement.</p>
 </div>
 <div class="see-more-container">
 <div class="see-more-text">See more</div>
