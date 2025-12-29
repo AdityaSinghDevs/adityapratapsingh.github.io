@@ -622,7 +622,163 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 </div>
 
-<!-- Project 4: ORCA v0 - Wearable Computer Vision Glasses Aid -->
+<!-- Project 4: SkySentinel-X - Micro-Doppler Target Classification -->
+<div class="jumbotron project-card completed" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+<div class="row">
+<div class="col-md-4">
+<img src="{{ '/images/skysentinel 1.png' | relative_url }}" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;" alt="SkySentinel-X micro-Doppler target classification system">
+<p style="color: #6c757d; font-size: 0.8rem; margin-bottom: 10px; text-align: center;">Smart India Hackathon</p>
+<p style="font-size: 0.85rem; font-style: italic; color: #555; text-align: center; margin-bottom: 0;">Radar-vision research prototype for bird vs drone discrimination</p>
+</div>
+<div class="col-md-8">
+<div class="card-content">
+<h3 style="font-weight: 700; font-size: 1.4rem; color: #222; margin-bottom: 12px;">SkySentinel-X — Micro-Doppler Target Classification (Research Prototype)</h3>
+<div style="margin-bottom: 15px;">
+<p class="project-text">An exploratory radar–vision research system for bird vs drone discrimination using micro-Doppler signatures</p>
+</div>
+
+<h4 class="project-subtitle">Research Context & Motivation</h4>
+<p class="project-text">SkySentinel-X is a research-oriented prototype built to investigate whether micro-Doppler signatures extracted from FMCW radar signals can be effectively transformed into a visual learning problem for modern deep learning models.</p>
+<p class="project-text">Low-altitude airspace monitoring systems frequently struggle to distinguish biological targets (birds) from small UAVs, leading to false alarms and unreliable threat assessment. Traditional radar pipelines rely on handcrafted features and heuristics, which often fail under real-world variability.</p>
+<p class="project-text">This project explores a different question: Can time–frequency representations of radar returns (STFT spectrograms) serve as a robust intermediate representation for CNN-based classification of aerial targets?</p>
+<p class="project-text">SkySentinel-X was developed as part of the Smart India Hackathon (SIH) problem statement on micro-Doppler–based target classification and successfully cleared the college-level selection round, validating its research direction and technical grounding.</p>
+
+<h4 class="project-subtitle">Research Problem Statement</h4>
+<p class="project-text"><strong>Objective:</strong> To experimentally evaluate whether deep convolutional models trained on STFT spectrograms can learn discriminative micro-Doppler patterns that separate birds from drone-like aerial objects.</p>
+<p class="project-text"><strong>Key research challenges addressed:</strong></p>
+<ul class="project-list">
+<li>High intra-class variability in drone rotor configurations</li>
+<li>Overlapping radar signatures between birds and UAVs</li>
+<li>Limited labeled radar datasets</li>
+<li>Class imbalance across target categories</li>
+<li>Translating radar signal processing outputs into ML-ready representations</li>
+</ul>
+
+<h4 class="project-subtitle">System Overview (Research Pipeline)</h4>
+<p class="project-text">SkySentinel-X implements a signal-processing → vision-learning pipeline, designed explicitly for experimentation and evaluation:</p>
+<p class="project-text"><strong>Radar Signal Processing</strong></p>
+<ul class="project-list">
+<li>FMCW radar returns processed using Short-Time Fourier Transform (STFT)</li>
+<li>Generation of micro-Doppler spectrograms capturing motion-induced frequency shifts</li>
+</ul>
+<p class="project-text"><strong>Representation Learning</strong></p>
+<ul class="project-list">
+<li>Spectrograms treated as image inputs</li>
+<li>Transfer learning using ResNet-50</li>
+<li>Fine-tuning restricted to later layers to adapt to radar-domain textures</li>
+</ul>
+<p class="project-text"><strong>Hierarchical Inference</strong></p>
+<ul class="project-list">
+<li>Multi-class predictions (rotor types, RC plane, bird)</li>
+<li>Aggregation into higher-level semantic groups: bird, drone</li>
+<li>Probability-weighted final decision with confidence estimation</li>
+</ul>
+<p class="project-text">This structure prioritizes interpretability and experimental control, not deployment.</p>
+
+<h4 class="project-subtitle">Key Research & Engineering Decisions</h4>
+<p class="project-text"><strong>Why STFT Spectrograms?</strong></p>
+<ul class="project-list">
+<li>Micro-Doppler effects manifest naturally in the time–frequency domain</li>
+<li>Spectrograms preserve: Rotor periodicity, Wing-flap harmonics, Motion-induced frequency spread</li>
+<li>Enables reuse of mature CNN architectures without handcrafted signal features</li>
+</ul>
+
+<p class="project-text"><strong>Why CNN Transfer Learning?</strong></p>
+<ul class="project-list">
+<li>Limited radar datasets make training from scratch impractical</li>
+<li>Pretrained CNNs provide strong low-level feature extractors</li>
+<li>Transfer learning allows rapid hypothesis testing under constrained data</li>
+</ul>
+
+<p class="project-text"><strong>Handling Dataset Bias</strong></p>
+<ul class="project-list">
+<li>Stratified splits to preserve class distribution</li>
+<li>Class-weighted loss to counter rotor-class dominance</li>
+<li>Augmentations designed to preserve spectrogram semantics</li>
+</ul>
+<p class="project-text">This project intentionally avoids over-engineering and instead focuses on clean experimental design.</p>
+
+<h4 class="project-subtitle">Evaluation & Experimental Results</h4>
+<p class="project-text"><strong>Dataset</strong></p>
+<ul class="project-list">
+<li>813 labeled spectrogram samples</li>
+<li>Target categories: Bird, Drone, RC Plane, Long-blade rotor, Short-blade rotor</li>
+</ul>
+<p class="project-text"><strong>Results</strong></p>
+<ul class="project-list">
+<li>Overall accuracy: 94.71%</li>
+<li>Macro F1-score: 0.9479</li>
+</ul>
+<p class="project-text"><strong>Observations</strong></p>
+<ul class="project-list">
+<li>Near-perfect separation of biological vs mechanical targets</li>
+<li>Expected confusion between similar drone rotor configurations</li>
+<li>Strong generalization despite limited data volume</li>
+</ul>
+<p class="project-text">These results support the hypothesis that micro-Doppler spectrograms are a viable visual representation for aerial target classification.</p>
+
+<h4 class="project-subtitle">Research Stack</h4>
+<p class="project-text"><strong>Signal Processing</strong></p>
+<ul class="project-list">
+<li>FMCW radar data</li>
+<li>STFT-based time–frequency analysis</li>
+</ul>
+<p class="project-text"><strong>ML & Experimentation</strong></p>
+<ul class="project-list">
+<li>PyTorch + FastAI</li>
+<li>ResNet-50 (transfer learning)</li>
+<li>Class-weighted cross-entropy</li>
+<li>Early stopping and checkpointing</li>
+</ul>
+<p class="project-text"><strong>Analysis</strong></p>
+<ul class="project-list">
+<li>Confusion matrices</li>
+<li>Precision/recall/F1 analysis</li>
+<li>Training–validation loss tracking</li>
+</ul>
+
+<h4 class="project-subtitle">Research Value & Applications</h4>
+<p class="project-text">This project is positioned as a research probe, not a finished product.</p>
+<p class="project-text"><strong>Potential downstream relevance:</strong></p>
+<ul class="project-list">
+<li>Radar-based drone intrusion detection</li>
+<li>Bird–drone discrimination in aviation safety</li>
+<li>Defense and perimeter surveillance research</li>
+<li>Foundations for multimodal radar–vision systems</li>
+</ul>
+<p class="project-text">Its primary contribution is methodological: demonstrating a clean bridge between radar signal processing and deep visual learning.</p>
+
+<h4 class="project-subtitle">Reflections & Learnings</h4>
+<p class="project-text">SkySentinel-X represents an important shift in my work toward research-driven system design:</p>
+<ul class="project-list">
+<li>Learned to reason across signal processing and ML abstraction layers</li>
+<li>Gained experience handling real-world class imbalance rigorously</li>
+<li>Developed intuition for radar-domain representations</li>
+<li>Practiced designing experiments that test hypotheses, not just models</li>
+</ul>
+<p class="project-text">While currently implemented as a notebook-based research prototype, the pipeline is intentionally structured to be refactored into modular training and inference systems in future iterations.</p>
+
+<h4 class="project-subtitle">Project Status</h4>
+<p class="project-text"><strong>Type:</strong> Research prototype</p>
+<p class="project-text"><strong>Stage:</strong> Experimental validation complete</p>
+<p class="project-text"><strong>Current form:</strong> Jupyter-based exploratory pipeline</p>
+<p class="project-text"><strong>Future work:</strong></p>
+<ul class="project-list">
+<li>Modularization into training/inference components</li>
+<li>Larger, more diverse radar datasets</li>
+<li>Real-time radar stream integration</li>
+<li>Extended aerial target taxonomy</li>
+</ul>
+</div>
+<div class="see-more-container">
+<div class="see-more-text">See more</div>
+<div class="arrow-down"></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Project 5: ORCA v0 - Wearable Computer Vision Glasses Aid -->
 <div class="jumbotron project-card completed" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
 <div class="row">
 <div class="col-md-4">
@@ -739,7 +895,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 </div>
 
-<!-- Project 5: Vulkyrie v1 - Edge-Deployed Carcass Contamination Detection System -->
+<!-- Project 6: Vulkyrie v1 - Edge-Deployed Carcass Contamination Detection System -->
 <div class="jumbotron project-card completed" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
 <div class="row">
 <div class="col-md-4">
@@ -891,7 +1047,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 </div>
 
-<!-- Project 6: Advait AI Community Platform -->
+<!-- Project 7: Advait AI Community Platform -->
 <div class="jumbotron project-card ongoing" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
 <div class="row">
 <div class="col-md-4">
@@ -921,6 +1077,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 <!-- Project 7: ML Systems Research Pipeline -->
+<!-- Commented out temporarily
 <div class="jumbotron project-card ongoing" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
 <div class="row">
 <div class="col-md-4">
@@ -948,3 +1105,4 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 </div>
 </div>
+-->
