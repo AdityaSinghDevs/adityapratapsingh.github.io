@@ -96,7 +96,13 @@ body .projects-page .row {
 
 .project-image-column {
   flex: 0 0 33.33%;
-  max-width: 400px;
+  max-width: 33.33%;
+}
+
+/* Ensure Bootstrap columns match custom layout */
+.jumbotron .col-md-4 {
+  max-width: 33.33%;
+  flex: 0 0 33.33%;
 }
 
 .project-content-column {
@@ -277,11 +283,31 @@ body .projects-page .row {
 .thumbnail-scroll {
   display: flex;
   gap: 6px;
-  overflow: hidden;
+  overflow-x: auto;
   scroll-behavior: smooth;
   flex: 1;
   padding: 5px 0;
-  justify-content: center;
+  justify-content: flex-start;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.thumbnail-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.thumbnail-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2px;
+}
+
+.thumbnail-scroll::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 2px;
+}
+
+.thumbnail-scroll::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
 }
 
 .thumbnail-arrow {
@@ -495,25 +521,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function scrollThumbnailIntoView() {
       const activeThumb = thumbnails[currentIndex];
       if (activeThumb && thumbnailScroll) {
-        // Calculate center position without using scroll
-        const containerWidth = thumbnailScroll.offsetWidth;
-        const totalWidth = thumbnails.length * 56; // 50px width + 6px gap
-        const centerOffset = (containerWidth - 56) / 2; // Center single thumbnail
-        const targetOffset = currentIndex * 56;
-        
-        // If images don't overflow, just center the active one
-        if (totalWidth <= containerWidth) {
-          // Use transform to center the active thumbnail
-          const offset = centerOffset - targetOffset;
-          thumbnailScroll.style.transform = `translateX(${offset}px)`;
-        } else {
-          // Fallback to scroll if overflow occurs
-          const scrollLeft = activeThumb.offsetLeft - (thumbnailScroll.offsetWidth / 2) + (activeThumb.offsetWidth / 2);
-          thumbnailScroll.scrollTo({
-            left: scrollLeft,
-            behavior: 'smooth'
-          });
-        }
+        // Use scrollIntoView for smooth scrolling and mouse/touchpad support
+        activeThumb.scrollIntoView({
+          behavior: 'smooth',
+          inline: 'center',
+          block: 'nearest'
+        });
       }
     }
     
