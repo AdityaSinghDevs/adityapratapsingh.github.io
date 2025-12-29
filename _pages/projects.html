@@ -251,9 +251,11 @@ body .projects-page .row {
 
 .main-image {
   width: 100%;
-  height: 300px;
-  object-fit: cover;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
   border-radius: 8px;
+  background-color: #f8f9fa;
 }
 
 .thumbnail-container {
@@ -262,6 +264,48 @@ body .projects-page .row {
   margin-top: 10px;
   overflow-x: auto;
   padding: 5px 0;
+  position: relative;
+}
+
+.thumbnail-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.thumbnail-scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  flex: 1;
+  padding: 5px 0;
+}
+
+.thumbnail-arrow {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 12px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 30px;
+}
+
+.thumbnail-arrow:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+.thumbnail-arrow:disabled {
+  background: rgba(0,0,0,0.2);
+  cursor: not-allowed;
 }
 
 .thumbnail {
@@ -273,6 +317,7 @@ body .projects-page .row {
   opacity: 0.6;
   transition: opacity 0.3s ease;
   border: 2px solid transparent;
+  flex-shrink: 0;
 }
 
 .thumbnail:hover {
@@ -282,32 +327,6 @@ body .projects-page .row {
 .thumbnail.active {
   opacity: 1;
   border-color: #007bff;
-}
-
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 4px;
-  z-index: 10;
-  font-size: 14px;
-}
-
-.carousel-arrow.prev {
-  left: 10px;
-}
-
-.carousel-arrow.next {
-  right: 10px;
-}
-
-.carousel-arrow:hover {
-  background: rgba(0,0,0,0.7);
 }
 
 /* Responsive design */
@@ -412,6 +431,88 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   });
+
+  // Initialize carousel functionality
+  function initCarousel(carousel) {
+    const mainImage = carousel.querySelector('.main-image');
+    const thumbnails = carousel.querySelectorAll('.thumbnail');
+    const prevBtn = carousel.querySelector('.thumbnail-arrow.prev');
+    const nextBtn = carousel.querySelector('.thumbnail-arrow.next');
+    const thumbnailScroll = carousel.querySelector('.thumbnail-scroll');
+    
+    let currentIndex = 0;
+    
+    // Set initial active thumbnail
+    if (thumbnails.length > 0) {
+      thumbnails[0].classList.add('active');
+    }
+    
+    // Thumbnail click handler
+    thumbnails.forEach((thumb, index) => {
+      thumb.addEventListener('click', () => {
+        currentIndex = index;
+        updateMainImage();
+        updateActiveThumbnail();
+        scrollThumbnailIntoView();
+      });
+    });
+    
+    // Arrow click handlers
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateMainImage();
+        updateActiveThumbnail();
+        scrollThumbnailIntoView();
+      }
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < thumbnails.length - 1) {
+        currentIndex++;
+        updateMainImage();
+        updateActiveThumbnail();
+        scrollThumbnailIntoView();
+      }
+    });
+    
+    function updateMainImage() {
+      const clickedThumb = thumbnails[currentIndex];
+      if (clickedThumb) {
+        mainImage.src = clickedThumb.src;
+        mainImage.alt = clickedThumb.alt;
+      }
+      updateArrowStates();
+    }
+    
+    function updateActiveThumbnail() {
+      thumbnails.forEach((thumb, index) => {
+        thumb.classList.toggle('active', index === currentIndex);
+      });
+    }
+    
+    function scrollThumbnailIntoView() {
+      const activeThumb = thumbnails[currentIndex];
+      if (activeThumb && thumbnailScroll) {
+        const scrollLeft = activeThumb.offsetLeft - (thumbnailScroll.offsetWidth / 2) + (activeThumb.offsetWidth / 2);
+        thumbnailScroll.scrollTo({
+          left: scrollLeft,
+          behavior: 'smooth'
+        });
+      }
+    }
+    
+    function updateArrowStates() {
+      if (prevBtn) prevBtn.disabled = currentIndex === 0;
+      if (nextBtn) nextBtn.disabled = currentIndex === thumbnails.length - 1;
+    }
+    
+    // Initialize arrow states
+    updateArrowStates();
+  }
+  
+  // Initialize all carousels on the page
+  document.querySelectorAll('.image-carousel').forEach(initCarousel);
 });
 </script>
 
@@ -420,7 +521,19 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="project-card completed">
 <div class="project-layout">
 <div class="project-image-column">
-<img src="{{ '/images/tesseract.gif' | relative_url }}" alt="Text-to-3D mesh generation using diffusion models - Tesseract v1">
+<div class="image-carousel">
+<img src="{{ '/images/tesseract.gif' | relative_url }}" class="main-image" alt="Text-to-3D mesh generation using diffusion models - Tesseract v1">
+<div class="thumbnail-controls">
+<button class="thumbnail-arrow prev" disabled>‹</button>
+<div class="thumbnail-scroll">
+<img src="{{ '/images/tesseract.gif' | relative_url }}" class="thumbnail active" alt="Text-to-3D mesh generation using diffusion models - Tesseract v1">
+<img src="https://picsum.photos/seed/tesseract2/60/45.jpg" class="thumbnail" alt="Tesseract project screenshot 2">
+<img src="https://picsum.photos/seed/tesseract3/60/45.jpg" class="thumbnail" alt="Tesseract project screenshot 3">
+<img src="https://picsum.photos/seed/tesseract4/60/45.jpg" class="thumbnail" alt="Tesseract project screenshot 4">
+</div>
+<button class="thumbnail-arrow next">›</button>
+</div>
+</div>
 <p class="project-meta">August 2025</p>
 <p class="project-description">Text-to-3D mesh generation using diffusion models</p>
 </div>
@@ -501,7 +614,19 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="jumbotron project-card completed" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
 <div class="row">
 <div class="col-md-4">
-<img src="{{ '/images/reddit.png' | relative_url }}" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;" alt="LLM-based Reddit user persona generation system - Reddit-Persona">
+<div class="image-carousel">
+<img src="{{ '/images/reddit.png' | relative_url }}" class="main-image" alt="LLM-based Reddit user persona generation system - Reddit-Persona">
+<div class="thumbnail-controls">
+<button class="thumbnail-arrow prev" disabled>‹</button>
+<div class="thumbnail-scroll">
+<img src="{{ '/images/reddit.png' | relative_url }}" class="thumbnail active" alt="LLM-based Reddit user persona generation system - Reddit-Persona">
+<img src="https://picsum.photos/seed/reddit2/60/45.jpg" class="thumbnail" alt="Reddit-Persona project screenshot 2">
+<img src="https://picsum.photos/seed/reddit3/60/45.jpg" class="thumbnail" alt="Reddit-Persona project screenshot 3">
+<img src="https://picsum.photos/seed/reddit4/60/45.jpg" class="thumbnail" alt="Reddit-Persona project screenshot 4">
+</div>
+<button class="thumbnail-arrow next">›</button>
+</div>
+</div>
 <p style="color: #6c757d; font-size: 0.8rem; margin-bottom: 10px; text-align: center;">July 2025</p>
 <p style="font-size: 0.85rem; font-style: italic; color: #555; text-align: center; margin-bottom: 0;">LLM-based user persona generation from Reddit activity</p>
 </div>
@@ -593,7 +718,19 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="jumbotron project-card ongoing" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
 <div class="row">
 <div class="col-md-4">
-<img src="{{ '/images/mimir.png' | relative_url }}" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;" alt="Research-oriented LLM system for DevOps incident reasoning - MÍMIR">
+<div class="image-carousel">
+<img src="{{ '/images/mimir.png' | relative_url }}" class="main-image" alt="Research-oriented LLM system for DevOps incident reasoning - MÍMIR">
+<div class="thumbnail-controls">
+<button class="thumbnail-arrow prev" disabled>‹</button>
+<div class="thumbnail-scroll">
+<img src="{{ '/images/mimir.png' | relative_url }}" class="thumbnail active" alt="Research-oriented LLM system for DevOps incident reasoning - MÍMIR">
+<img src="https://picsum.photos/seed/mimir2/60/45.jpg" class="thumbnail" alt="MÍMIR project screenshot 2">
+<img src="https://picsum.photos/seed/mimir3/60/45.jpg" class="thumbnail" alt="MÍMIR project screenshot 3">
+<img src="https://picsum.photos/seed/mimir4/60/45.jpg" class="thumbnail" alt="MÍMIR project screenshot 4">
+</div>
+<button class="thumbnail-arrow next">›</button>
+</div>
+</div>
 <p style="color: #6c757d; font-size: 0.8rem; margin-bottom: 10px; text-align: center;">2025 - Present</p>
 <p style="font-size: 0.85rem; font-style: italic; color: #555; text-align: center; margin-bottom: 0;">Research-oriented LLM system for DevOps incident reasoning</p>
 </div>
@@ -626,7 +763,19 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="jumbotron project-card completed" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
 <div class="row">
 <div class="col-md-4">
-<img src="{{ '/images/skysentinel 1.png' | relative_url }}" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;" alt="SkySentinel-X micro-Doppler target classification system">
+<div class="image-carousel">
+<img src="{{ '/images/skysentinel 1.png' | relative_url }}" class="main-image" alt="SkySentinel-X micro-Doppler target classification system">
+<div class="thumbnail-controls">
+<button class="thumbnail-arrow prev" disabled>‹</button>
+<div class="thumbnail-scroll">
+<img src="{{ '/images/skysentinel 1.png' | relative_url }}" class="thumbnail active" alt="SkySentinel-X micro-Doppler target classification system">
+<img src="https://picsum.photos/seed/skysentinel2/60/45.jpg" class="thumbnail" alt="SkySentinel-X project screenshot 2">
+<img src="https://picsum.photos/seed/skysentinel3/60/45.jpg" class="thumbnail" alt="SkySentinel-X project screenshot 3">
+<img src="https://picsum.photos/seed/skysentinel4/60/45.jpg" class="thumbnail" alt="SkySentinel-X project screenshot 4">
+</div>
+<button class="thumbnail-arrow next">›</button>
+</div>
+</div>
 <p style="color: #6c757d; font-size: 0.8rem; margin-bottom: 10px; text-align: center;">Smart India Hackathon</p>
 <p style="font-size: 0.85rem; font-style: italic; color: #555; text-align: center; margin-bottom: 0;">Radar-vision research prototype for bird vs drone discrimination</p>
 </div>
@@ -782,7 +931,19 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="jumbotron project-card completed" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
 <div class="row">
 <div class="col-md-4">
-<img src="{{ '/images/orca 1.png' | relative_url }}" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;" alt="ORCA wearable computer vision glasses aid system">
+<div class="image-carousel">
+<img src="{{ '/images/orca 1.png' | relative_url }}" class="main-image" alt="ORCA wearable computer vision glasses aid system">
+<div class="thumbnail-controls">
+<button class="thumbnail-arrow prev" disabled>‹</button>
+<div class="thumbnail-scroll">
+<img src="{{ '/images/orca 1.png' | relative_url }}" class="thumbnail active" alt="ORCA wearable computer vision glasses aid system">
+<img src="https://picsum.photos/seed/orca2/60/45.jpg" class="thumbnail" alt="ORCA project screenshot 2">
+<img src="https://picsum.photos/seed/orca3/60/45.jpg" class="thumbnail" alt="ORCA project screenshot 3">
+<img src="https://picsum.photos/seed/orca4/60/45.jpg" class="thumbnail" alt="ORCA project screenshot 4">
+</div>
+<button class="thumbnail-arrow next">›</button>
+</div>
+</div>
 <p style="color: #6c757d; font-size: 0.8rem; margin-bottom: 10px; text-align: center;">College Research Project</p>
 <p style="font-size: 0.85rem; font-style: italic; color: #555; text-align: center; margin-bottom: 0;">Low-cost wearable computer vision glasses aid</p>
 </div>
@@ -899,7 +1060,19 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="jumbotron project-card completed" style="margin-top: 30px; margin-bottom: 30px; padding: 25px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
 <div class="row">
 <div class="col-md-4">
-<img src="{{ '/images/vulkyrie 1.png' | relative_url }}" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;" alt="Vulkyrie edge-deployed contamination detection system">
+<div class="image-carousel">
+<img src="{{ '/images/vulkyrie 1.png' | relative_url }}" class="main-image" alt="Vulkyrie edge-deployed contamination detection system">
+<div class="thumbnail-controls">
+<button class="thumbnail-arrow prev" disabled>‹</button>
+<div class="thumbnail-scroll">
+<img src="{{ '/images/vulkyrie 1.png' | relative_url }}" class="thumbnail active" alt="Vulkyrie edge-deployed contamination detection system">
+<img src="https://picsum.photos/seed/vulkyrie2/60/45.jpg" class="thumbnail" alt="Vulkyrie project screenshot 2">
+<img src="https://picsum.photos/seed/vulkyrie3/60/45.jpg" class="thumbnail" alt="Vulkyrie project screenshot 3">
+<img src="https://picsum.photos/seed/vulkyrie4/60/45.jpg" class="thumbnail" alt="Vulkyrie project screenshot 4">
+</div>
+<button class="thumbnail-arrow next">›</button>
+</div>
+</div>
 <p style="color: #6c757d; font-size: 0.8rem; margin-bottom: 10px; text-align: center;">College Project & Hackathon</p>
 <p style="font-size: 0.85rem; font-style: italic; color: #555; text-align: center; margin-bottom: 0;">Edge-deployed contamination detection system</p>
 </div>
